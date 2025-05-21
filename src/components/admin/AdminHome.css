@@ -1,0 +1,182 @@
+.admin-dashboard {
+  padding-bottom: 30px;
+}
+
+/* Stat cards */
+.stat-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card .card-body {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.stat-icon.bus {
+  background-color: #9370DB;
+}
+
+.stat-icon.driver {
+  background-color: #3498db;
+}
+
+.stat-icon.user {
+  background-color: #2ecc71;
+}
+
+.stat-icon.event {
+  background-color: #f39c12;
+}
+
+.stat-icon.feedback {
+  background-color: #e74c3c;
+}
+
+.stat-icon.maintenance {
+  background-color: #1abc9c;
+}
+
+.stat-details h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.stat-details p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+/* Activity list */
+.activity-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.activity-item {
+  display: flex;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.activity-icon.bus {
+  background-color: #9370DB;
+}
+
+.activity-icon.driver {
+  background-color: #3498db;
+}
+
+.activity-icon.user {
+  background-color: #2ecc71;
+}
+
+.activity-icon.event {
+  background-color: #f39c12;
+}
+
+.activity-icon.feedback {
+  background-color: #e74c3c;
+}
+
+.activity-icon.maintenance {
+  background-color: #1abc9c;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-content h6 {
+  margin: 0 0 5px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.activity-content p {
+  margin: 0 0 5px;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.activity-time {
+  font-size: 0.75rem;
+  color: #adb5bd;
+}
+
+/* Action buttons */
+.action-btn {
+  padding: 0;
+  margin: 0 5px;
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.action-btn:hover {
+  color: #9370DB;
+}
+
+.action-btn.text-danger:hover {
+  color: #dc3545 !important;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .page-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .page-title h1 {
+    margin-bottom: 15px;
+  }
+  
+  .stat-card .card-body {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .stat-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}

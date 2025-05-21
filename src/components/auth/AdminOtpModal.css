@@ -1,0 +1,28 @@
+.admin-otp-modal {
+  z-index: 9999 !important;
+}
+
+.modal-backdrop {
+  z-index: 9998 !important;
+}
+
+.modal-open .modal {
+  display: block !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Ensure modal content is visible */
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Style for OTP input */
+.otp-input {
+  font-size: 1.2rem !important;
+  letter-spacing: 0.5rem !important;
+  text-align: center !important;
+  padding: 10px !important;
+}

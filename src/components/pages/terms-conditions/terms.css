@@ -1,0 +1,238 @@
+
+
+/* 1. Main Container
+-------------------------------------------------------------------*/
+.terms-ekmate-main-container {
+  background-color: var(--home-bg-color);
+  color: var(--home-text-color);
+  font-family: var(--home-font-primary);
+  line-height: 1.7; /* Base line height for readability */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* 2. Hero Section
+-------------------------------------------------------------------*/
+.terms-ekmate-hero-section {
+  padding: 60px 20px; /* Slightly reduced padding for content-heavy pages */
+  background-color: var(--home-secondary-color); /* A solid, rich color from the theme */
+  /* For a textured background (like Home hero):
+  background-image: linear-gradient(rgba(var(--home-hero-overlay-color-rgb, 93, 64, 55), 0.7), rgba(var(--home-hero-overlay-color-rgb, 93, 64, 55), 0.9)), url('./path/to/your-antique-paper-texture.jpg');
+  background-size: cover;
+  background-position: center center;
+  */
+  text-align: center;
+  color: var(--home-bg-color); /* Expecting light text on this background */
+  border-bottom: 3px double var(--home-accent-color); /* Antique-style border */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.terms-ekmate-page-title {
+  font-family: var(--home-font-headings);
+  font-size: 2.6rem; /* Prominent but not overwhelming */
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: inherit; /* Inherits from .terms-ekmate-hero-section */
+  letter-spacing: 1px;
+}
+
+.terms-ekmate-page-subtitle {
+  font-family: var(--home-font-accent);
+  font-size: 1.15rem;
+  font-style: italic;
+  opacity: 0.9;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: inherit;
+  line-height: 1.6;
+}
+
+/* 3. Content Section Styling
+-------------------------------------------------------------------*/
+.terms-ekmate-content-section {
+  padding: 50px 20px; /* Responsive padding */
+  background-color: var(--home-bg-color); /* Main page background */
+}
+
+/* Optional: Subtle alternating background for very long pages, if needed */
+/*
+.terms-ekmate-content-section:nth-of-type(odd) {
+   background-color: rgba(var(--home-accent-color-rgb, 210, 180, 140), 0.03);
+}
+html[data-theme="dark"] .terms-ekmate-content-section:nth-of-type(odd) {
+    background-color: rgba(var(--home-accent-color-rgb, 109, 76, 65), 0.06);
+}
+*/
+
+.terms-ekmate-article-wrapper {
+  background-color: var(--home-vellum-bg); /* Reusing vellum style for a document feel */
+  padding: 35px 45px; /* Generous padding */
+  border-radius: 8px; /* Softer radius */
+  border: 1px solid var(--home-accent-color);
+  box-shadow: 0 6px 18px var(--home-shadow-color); /* Deeper shadow for importance */
+}
+
+/* 4. Typography within the Article
+-------------------------------------------------------------------*/
+.terms-ekmate-section-heading { /* For H2 elements */
+  font-family: var(--home-font-headings);
+  font-size: 1.9rem;
+  color: var(--home-primary-color);
+  margin-top: 2.8rem; /* More space before major sections */
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--home-accent-color); /* More prominent separator */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.terms-ekmate-article-wrapper > .terms-ekmate-section-heading:first-of-type {
+  margin-top: 0; /* No top margin for the very first heading */
+}
+
+.terms-ekmate-sub-heading { /* For H3 elements */
+  font-family: var(--home-font-headings);
+  font-size: 1.45rem;
+  color: var(--home-secondary-color); /* Slightly different color for hierarchy */
+  margin-top: 2.2rem;
+  margin-bottom: 1.1rem;
+  font-weight: 600;
+}
+
+.terms-ekmate-paragraph {
+  font-family: var(--home-font-accent);
+  font-size: 1.0rem; /* Standard readable size */
+  color: var(--home-text-color);
+  margin-bottom: 1.3em;
+  line-height: 1.85; /* Increased for better readability of dense text */
+  text-align: justify; /* Justified text for a formal document feel */
+  text-justify: inter-word;
+}
+
+.terms-ekmate-paragraph strong {
+  font-weight: 600; /* Bootstrap default is often bolder */
+  color: var(--home-primary-color); /* Emphasize strong text */
+}
+
+.terms-ekmate-link {
+  color: var(--home-secondary-color);
+  text-decoration: none; /* Remove default underline */
+  font-weight: 500;
+  border-bottom: 1px dashed var(--home-accent-color); /* Subtle underline */
+  padding-bottom: 1px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.terms-ekmate-link:hover,
+.terms-ekmate-link:focus {
+  color: var(--home-primary-color);
+  border-bottom-style: solid;
+  border-bottom-color: var(--home-primary-color);
+  outline: none;
+}
+
+.terms-ekmate-list {
+  list-style-type: none; /* Remove default browser bullets */
+  padding-left: 0; /* Reset padding */
+  margin-bottom: 1.5em;
+}
+
+.terms-ekmate-list-item {
+  font-family: var(--home-font-accent);
+  font-size: 1.0rem;
+  color: var(--home-text-color);
+  margin-bottom: 0.9em;
+  padding-left: 2em; /* Space for custom bullet and text */
+  position: relative;
+  line-height: 1.85;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.terms-ekmate-list-item::before {
+  content: "•"; /* Simple, classic bullet. Can change to ❖, †, etc. */
+  /* content: "📜"; /* Example: Scroll icon */
+  position: absolute;
+  left: 0.5em; /* Position of the bullet */
+  top: 0; /* Align with text top */
+  color: var(--home-primary-color);
+  font-size: 1em;
+  font-weight: 700; /* Make bullet slightly bolder */
+}
+
+.terms-ekmate-last-updated {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--home-accent-color); /* Muted color for less emphasis */
+  text-align: right;
+}
+
+/* 5. Responsive Adjustments
+-------------------------------------------------------------------*/
+@media (max-width: 991.98px) { /* Tablets */
+  .terms-ekmate-page-title {
+    font-size: 2.2rem;
+  }
+  .terms-ekmate-page-subtitle {
+    font-size: 1.1rem;
+  }
+  .terms-ekmate-section-heading {
+    font-size: 1.7rem;
+  }
+  .terms-ekmate-sub-heading {
+    font-size: 1.3rem;
+  }
+  .terms-ekmate-article-wrapper {
+    padding: 30px 35px;
+  }
+}
+
+@media (max-width: 767.98px) { /* Landscape Phones */
+  .terms-ekmate-hero-section {
+    padding: 40px 15px;
+  }
+  .terms-ekmate-content-section {
+    padding: 30px 15px;
+  }
+  .terms-ekmate-article-wrapper {
+    padding: 25px 20px;
+  }
+  .terms-ekmate-page-title {
+    font-size: 1.9rem;
+  }
+  .terms-ekmate-page-subtitle {
+    font-size: 1rem;
+  }
+  .terms-ekmate-section-heading {
+    font-size: 1.55rem;
+  }
+  .terms-ekmate-sub-heading {
+    font-size: 1.2rem;
+  }
+  .terms-ekmate-paragraph,
+  .terms-ekmate-list-item {
+    font-size: 0.95rem;
+    text-align: left; /* Justify might be too much on small screens */
+  }
+  .terms-ekmate-list-item {
+    padding-left: 1.5em;
+  }
+  .terms-ekmate-list-item::before {
+    left: 0.2em;
+  }
+}
+
+@media (max-width: 575.98px) { /* Portrait Phones */
+  .terms-ekmate-article-wrapper {
+    padding: 20px 15px;
+  }
+  .terms-ekmate-page-title {
+    font-size: 1.7rem;
+  }
+  .terms-ekmate-section-heading {
+    font-size: 1.4rem;
+  }
+  .terms-ekmate-sub-heading {
+    font-size: 1.1rem;
+  }
+}

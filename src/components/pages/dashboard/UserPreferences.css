@@ -1,0 +1,179 @@
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Dark mode fixes for page header */
+.dark-theme .page-header h1 {
+  color: #ffffff !important;
+}
+
+.dark-theme .page-header p,
+.dark-theme .preferences-subtitle {
+  color: #b0b0b0 !important;
+}
+
+.preferences-card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.preferences-card .card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 1.25rem;
+}
+
+.preferences-card .card-header h5 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+/* Dark mode fixes for preferences card */
+.dark-theme .preferences-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .preferences-card .card-header {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.dark-theme .preferences-card .card-header h5 {
+  color: #ffffff !important;
+}
+
+.form-check {
+  padding-left: 2rem;
+}
+
+.form-switch .form-check-input {
+  width: 2.5em;
+  height: 1.25em;
+  margin-left: -2rem;
+}
+
+.form-switch .form-check-input:checked {
+  background-color: #9575cd;
+  border-color: #9575cd;
+}
+
+.add-schedule-form {
+  background-color: #f8f9fa;
+  border-color: #eee !important;
+}
+
+/* Dark mode fixes for add schedule form */
+.dark-theme .add-schedule-form {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--border-dark) !important;
+}
+
+.dark-theme .add-schedule-form h6 {
+  color: #ffffff !important;
+}
+
+.schedule-item {
+  background-color: #fff;
+  transition: all 0.2s ease;
+  border-color: #eee !important;
+}
+
+.schedule-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-details {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.schedule-item h6 {
+  color: #555;
+  font-weight: 600;
+}
+
+/* Dark mode fixes for schedule items */
+.dark-theme .schedule-item {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark) !important;
+}
+
+.dark-theme .schedule-item h6 {
+  color: #ffffff !important;
+}
+
+.dark-theme .schedule-details {
+  color: #e0e0e0;
+}
+
+.dark-theme .schedule-details strong {
+  color: #ffffff;
+}
+
+.btn-primary {
+  background-color: #9575cd;
+  border-color: #9575cd;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #7e57c2;
+  border-color: #7e57c2;
+}
+
+.btn-outline-primary {
+  color: #9575cd;
+  border-color: #9575cd;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: #9575cd;
+  border-color: #9575cd;
+}
+
+.badge.bg-primary {
+  background-color: #9575cd !important;
+}
+
+/* Form labels in dark mode */
+.dark-theme .form-label,
+.dark-theme .form-check-label {
+  color: #ffffff !important;
+}
+
+/* No results message in dark mode */
+.dark-theme .no-results {
+  color: #b0b0b0 !important;
+}
+
+/* Schedule description in dark mode */
+.dark-theme .schedule-description {
+  color: #b0b0b0 !important;
+}
+
+/* List group items in dark mode */
+.dark-theme .list-group-item {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  color: #ffffff !important;
+}
+
+@media (max-width: 992px) {
+  .preferences-card {
+    margin-bottom: 1.5rem;
+  }
+}

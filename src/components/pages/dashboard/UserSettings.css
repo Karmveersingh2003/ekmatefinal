@@ -1,0 +1,148 @@
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.settings-subtitle {
+  color: #6c757d;
+}
+
+.settings-card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.settings-nav-card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.settings-nav {
+  padding: 10px;
+}
+
+.settings-nav .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  color: #495057;
+  transition: all 0.3s ease;
+}
+
+.settings-nav .nav-link:hover {
+  background-color: rgba(147, 112, 219, 0.1);
+}
+
+.settings-nav .nav-link.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.nav-icon {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.settings-section-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #6c757d;
+  padding: 0 12px;
+}
+
+.password-toggle-btn:hover {
+  color: var(--primary-color);
+}
+
+/* Dark mode styles */
+.dark-theme .settings-card,
+.dark-theme .settings-nav-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.dark-theme .settings-subtitle {
+  color: #b0b0b0;
+}
+
+.dark-theme .settings-section-title {
+  border-bottom-color: var(--border-dark);
+}
+
+.dark-theme .settings-nav .nav-link {
+  color: #e0e0e0;
+}
+
+.dark-theme .settings-nav .nav-link:hover {
+  background-color: rgba(179, 157, 219, 0.1);
+}
+
+.dark-theme .settings-nav .nav-link.active {
+  background-color: var(--primary-dark);
+  color: #121212;
+}
+
+.dark-theme .password-toggle-btn {
+  color: #b0b0b0;
+}
+
+.dark-theme .password-toggle-btn:hover {
+  color: var(--primary-dark);
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  .settings-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .settings-nav .nav-item {
+    flex: 0 0 auto;
+    margin-right: 10px;
+  }
+  
+  .settings-nav .nav-link {
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+}

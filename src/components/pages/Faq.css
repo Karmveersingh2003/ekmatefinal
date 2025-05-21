@@ -1,0 +1,244 @@
+/* Faq.css */
+
+/*
+  IMPORTANT: This CSS assumes that the theme variables defined in your
+  Home.css (or a global _variables.css) are available.
+  These include:
+  --home-bg-color, --home-text-color, --home-primary-color,
+  --home-secondary-color, --home-accent-color, --home-card-bg,
+  --home-font-primary, --home-font-headings, --home-font-accent,
+  --home-shadow-color,
+  and their dark theme counterparts, plus RGB versions like:
+  --home-primary-color-rgb-light, --home-accent-color-rgb-light etc.
+*/
+
+/* 1. Main Page Container
+-------------------------------------------------------------------*/
+.faq-ekmate-main-container {
+  background-color: var(--home-bg-color);
+  color: var(--home-text-color);
+  font-family: var(--home-font-primary);
+  min-height: 100vh;
+  padding-bottom: 50px; /* Space at the bottom */
+}
+
+/* 2. Hero Section
+-------------------------------------------------------------------*/
+.faq-ekmate-hero-section {
+  padding: 70px 0;
+  background-color: var(--home-secondary-color); /* Or a textured background like other pages */
+  /* Example for textured background:
+  background-image: linear-gradient(rgba(var(--home-hero-overlay-color-rgb, 93, 64, 55), 0.7), rgba(var(--home-hero-overlay-color-rgb, 93, 64, 55), 0.9)), url('PATH_TO_ANTIQUE_TEXTURE_IMAGE.jpg');
+  background-size: cover;
+  background-position: center;
+  */
+  text-align: center;
+  color: var(--home-bg-color); /* Light text on darker background */
+  border-bottom: 3px solid var(--home-accent-color);
+}
+
+.faq-ekmate-hero-icon { /* Optional icon styling */
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  color: var(--home-bg-color); /* Or var(--home-accent-color) if background is lighter */
+}
+
+.faq-ekmate-hero-title {
+  font-family: var(--home-font-headings);
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: inherit; /* Inherits from .faq-ekmate-hero-section */
+}
+
+.faq-ekmate-hero-subtitle {
+  font-family: var(--home-font-accent);
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: inherit;
+  line-height: 1.7;
+}
+
+/* 3. Content Section & General Section Styling
+-------------------------------------------------------------------*/
+.faq-ekmate-content-section {
+  padding: 70px 0;
+  position: relative;
+}
+
+.faq-ekmate-section-title {
+  text-align: center;
+  font-family: var(--home-font-headings);
+  font-size: 2.5rem;
+  color: var(--home-primary-color);
+  margin-bottom: 50px; /* Space before accordion */
+  padding-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+}
+
+/* Ornate Title Styling (reused from Home.css with prefix) */
+.faq-ekmate-ornate-title span {
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.faq-ekmate-ornate-title span::before,
+.faq-ekmate-ornate-title span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 60px; /* Adjust as needed */
+  height: 2px;
+  background-color: var(--home-accent-color);
+  transform: translateY(-50%);
+}
+
+.faq-ekmate-ornate-title span::before {
+  left: -70px; /* Adjust to clear text */
+}
+
+.faq-ekmate-ornate-title span::after {
+  right: -70px; /* Adjust to clear text */
+}
+
+/* 4. Accordion Styling
+-------------------------------------------------------------------*/
+.faq-ekmate-accordion {
+  /* No specific styles for the main accordion container itself,
+     styling is applied to items */
+}
+
+.faq-ekmate-accordion-item {
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  margin-bottom: 18px;
+  border-radius: 8px;
+  overflow: hidden; /* For rounded corners on header/body */
+  box-shadow: 0 4px 12px var(--home-shadow-color);
+  transition: box-shadow 0.3s ease;
+}
+.faq-ekmate-accordion-item:last-of-type {
+  margin-bottom: 0;
+}
+.faq-ekmate-accordion-item:hover {
+  box-shadow: 0 6px 18px rgba(var(--home-primary-color-rgb-light, 139, 69, 19), 0.2);
+}
+html[data-theme="dark"] .faq-ekmate-accordion-item:hover {
+  box-shadow: 0 6px 18px rgba(var(--home-primary-color-rgb-dark, 188, 170, 164), 0.25);
+}
+
+.faq-ekmate-accordion-header.accordion-button { /* Target the button directly */
+  background-color: transparent; /* Override bootstrap default */
+  color: var(--home-primary-color);
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: 18px 22px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  box-shadow: none !important; /* Override bootstrap focus shadow */
+}
+
+.faq-ekmate-accordion-header.accordion-button:not(.collapsed) {
+  color: var(--home-secondary-color);
+  background-color: rgba(var(--home-accent-color-rgb-light, 210, 180, 140), 0.1); /* Subtle highlight when open */
+  box-shadow: none !important;
+}
+html[data-theme="dark"] .faq-ekmate-accordion-header.accordion-button:not(.collapsed) {
+  background-color: rgba(var(--home-accent-color-rgb-dark, 109, 76, 65), 0.2);
+}
+
+
+.faq-ekmate-accordion-header.accordion-button::after { /* Arrow */
+  background-image: none; /* Remove default Bootstrap arrow */
+  content: "▼"; /* Custom arrow */
+  font-size: 0.8em;
+  font-weight: bold;
+  color: var(--home-primary-color);
+  transform: translateY(-1px) rotate(0deg);
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: auto; /* Pushes arrow to the right */
+}
+
+.faq-ekmate-accordion-header.accordion-button:not(.collapsed)::after {
+  transform: translateY(-1px) rotate(-180deg);
+  color: var(--home-secondary-color);
+}
+
+.faq-ekmate-accordion-body {
+  padding: 10px 22px 22px 22px;
+  font-family: var(--home-font-accent);
+  font-size: 1rem;
+  color: var(--home-text-color);
+  line-height: 1.8;
+  background-color: rgba(var(--home-bg-color-rgb, 253, 245, 230), 0.3); /* Slightly different bg for body */
+  border-top: 1px solid var(--home-card-border);
+}
+html[data-theme="dark"] .faq-ekmate-accordion-body {
+  background-color: rgba(var(--home-bg-color-rgb, 62, 39, 35), 0.5);
+}
+
+/* 5. Responsive Design
+-------------------------------------------------------------------*/
+@media (max-width: 991.98px) { /* Medium devices (tablets) */
+  .faq-ekmate-hero-title,
+  .faq-ekmate-section-title {
+    font-size: 2.2rem;
+  }
+  .faq-ekmate-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .faq-ekmate-ornate-title span::before,
+  .faq-ekmate-ornate-title span::after {
+    width: 40px;
+  }
+  .faq-ekmate-ornate-title span::before { left: -50px; }
+  .faq-ekmate-ornate-title span::after { right: -50px; }
+}
+
+@media (max-width: 767.98px) { /* Small devices (landscape phones) */
+  .faq-ekmate-hero-section,
+  .faq-ekmate-content-section {
+    padding: 50px 0;
+  }
+  .faq-ekmate-hero-title,
+  .faq-ekmate-section-title {
+    font-size: 1.8rem;
+  }
+  .faq-ekmate-hero-subtitle {
+    font-size: 1rem;
+  }
+  .faq-ekmate-accordion-header.accordion-button {
+    font-size: 1.05rem;
+    padding: 15px 18px;
+  }
+  .faq-ekmate-accordion-body {
+    font-size: 0.95rem;
+    padding: 8px 18px 18px 18px;
+  }
+  .faq-ekmate-ornate-title span { padding: 0 10px; }
+  .faq-ekmate-ornate-title span::before,
+  .faq-ekmate-ornate-title span::after {
+    display: none; /* Hide side lines on small screens for simplicity */
+  }
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (portrait phones) */
+  .faq-ekmate-hero-title,
+  .faq-ekmate-section-title {
+    font-size: 1.6rem;
+  }
+  .faq-ekmate-hero-icon {
+    font-size: 2.8rem;
+  }
+  .faq-ekmate-accordion-header.accordion-button {
+    font-size: 1rem;
+  }
+}

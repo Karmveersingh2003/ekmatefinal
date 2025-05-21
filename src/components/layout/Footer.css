@@ -1,0 +1,272 @@
+/* Footer.css */
+
+/* Ensure your theme variables from Home.css (or a global CSS file) are available.
+   This CSS assumes variables like --home-bg-color, --home-text-color, etc., are defined.
+*/
+
+.footer {
+  /* Using secondary color for a slight variation, or stick to primary if preferred */
+  background-color: #383838f8;
+  color: #A0522D; /* Main text color against dark footer bg */
+  padding-top: 60px; /* Increased top padding */
+  padding-bottom: 20px; /* Added bottom padding */
+  font-family: var(--home-font-accent);
+  border-top: 3px double var(--home-accent-color); /* More thematic top border */
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow casting upwards */
+  position: relative; /* For potential pseudo-elements if needed later */
+}
+
+.footer::before { /* Optional: Subtle texture overlay for the footer */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYqBgYOLi4uAgIBWVlZgYGCqqqqUlJRecXCEAAAAJklEQVR42mNgAFAKBggCFgQkAAAAHgAACAEAArMCC0AAAAASUVORK5CYII='); /* Re-use grain */
+  opacity: 0.03; /* Very very subtle */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer .container {
+  position: relative; /* Ensure container content is above pseudo-elements */
+  z-index: 1;
+}
+
+
+.footer-heading {
+  font-family: var(--home-font-headings);
+  color: var(--home-bg-color);
+  opacity: 1; /* Headings should be crisp */
+  margin-bottom: 22px;
+  font-size: 1.3rem; /* Slightly larger for more presence */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* A bit more spacing for an "engraved" feel */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.footer-text {
+  color: var(--home-bg-color);
+  opacity: 0.8; /* Increased opacity for better readability */
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 20px; /* More space */
+}
+
+.social-icons .social-icon {
+  color: var(--home-bg-color);
+  opacity: 0.75;
+  font-size: 1.5rem; /* Slightly larger icons */
+  margin-right: 20px;
+  transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons .social-icon:last-child {
+  margin-right: 0;
+}
+
+.social-icons .social-icon:hover {
+  color: var(--home-accent-color); /* Hover color to accent */
+  opacity: 1;
+  transform: translateY(-2px) scale(1.05); /* More noticeable hover */
+}
+
+/* Footer Links & Contact List */
+.footer-links,
+.footer-contact {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+  margin-bottom: 12px; /* Slightly more spacing */
+  font-size: 0.9rem;
+}
+
+.footer-links li a {
+  color: var(--home-bg-color);
+  opacity: 0.85;
+  text-decoration: none;
+  transition: color 0.3s ease, opacity 0.3s ease, letter-spacing 0.3s ease;
+  font-family: var(--home-font-accent);
+  position: relative; /* For pseudo-element underline */
+  padding-bottom: 2px; /* Space for underline */
+}
+
+.footer-links li a::after { /* Custom underline effect */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--home-accent-color);
+  transition: width 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: var(--home-accent-color); /* Hover to accent color */
+  opacity: 1;
+  letter-spacing: 0.3px; /* Slight letter spacing increase on hover */
+}
+.footer-links li a:hover::after {
+  width: 100%;
+}
+
+
+.footer-contact li {
+  color: var(--home-bg-color);
+  opacity: 0.8;
+  font-family: var(--home-font-accent);
+}
+
+/* Footer Divider */
+.footer-divider {
+  border: 0; /* Remove default hr border */
+  height: 1px; /* Define height for background */
+  background-image: linear-gradient(to right, rgba(var(--home-bg-color-rgb), 0), rgba(var(--home-bg-color-rgb), 0.3), rgba(var(--home-bg-color-rgb), 0));
+  /* Assuming --home-bg-color-rgb is defined (e.g., 253, 245, 230 for light theme's parchment) */
+  /* If not, use a solid color:
+  border-top: 1px solid var(--home-bg-color);
+  opacity: 0.2;
+  */
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+/* Fallback for --home-bg-color-rgb if not defined (it was in Home.css) */
+html[data-theme="light"] .footer-divider {
+    background-image: linear-gradient(to right, rgba(253, 245, 230, 0), rgba(253, 245, 230, 0.3), rgba(253, 245, 230, 0));
+}
+html[data-theme="dark"] .footer-divider {
+    background-image: linear-gradient(to right, rgba(62, 39, 35, 0), rgba(62, 39, 35, 0.3), rgba(62, 39, 35, 0));
+}
+
+
+/* Footer Bottom Section (Copyright & Links) */
+.footer .py-3 {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+}
+
+.footer .py-3 p { /* Copyright text */
+  font-size: 0.85rem;
+  color: var(--home-bg-color);
+  opacity: 0.7; /* Slightly more visible */
+  margin-bottom: 10px;
+  font-family: var(--home-font-primary); /* Use primary font for a bit more formality */
+}
+
+.footer-bottom-links {
+  margin-top: 8px;
+}
+
+.footer-bottom-links a {
+  color: var(--home-bg-color);
+  opacity: 0.75;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  font-family: var(--home-font-primary);
+  margin: 0 5px; /* Add some horizontal spacing */
+}
+
+.footer-bottom-links a:hover {
+  color: var(--home-accent-color);
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-color: var(--home-accent-color);
+  text-decoration-thickness: 1px; /* Thinner underline */
+  text-underline-offset: 3px; /* Offset underline slightly */
+}
+
+.footer-bottom-links span { /* The "|" separator */
+  opacity: 0.5;
+  color: var(--home-bg-color);
+  /* Removed margins, handled by <a> tag margin now */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) { /* Ensure consistent column spacing on medium */
+    .footer .row > [class^="col-"] { /* Targeting Bootstrap columns */
+        margin-bottom: 25px; /* Ensure consistent bottom margin for all columns */
+    }
+    .footer .row > [class^="col-"]:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+@media (max-width: 767.98px) {
+  .footer {
+    text-align: center;
+    padding-top: 40px;
+    border-top-width: 2px; /* Slightly thinner double border */
+  }
+
+  .footer-heading {
+    margin-top: 25px;
+  }
+  .footer-heading:first-of-type {
+      margin-top: 0;
+  }
+
+  .social-icons {
+    justify-content: center;
+    display: flex;
+  }
+
+  .footer-links,
+  .footer-contact {
+    text-align: center;
+  }
+  .footer-links li a::after { /* Center custom underline on hover for centered text */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-links li a:hover::after {
+      width: 70%; /* Or a fixed width appropriate for centered items */
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer-heading {
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-text,
+  .footer-links li,
+  .footer-contact li {
+    font-size: 0.88rem;
+  }
+
+  .social-icons .social-icon {
+    font-size: 1.4rem;
+    margin-right: 15px;
+  }
+
+  .footer .py-3 p,
+  .footer-bottom-links a {
+    font-size: 0.8rem;
+  }
+  .footer-bottom-links {
+    display: flex;
+    flex-direction: column; /* Stack links on very small screens */
+    align-items: center;
+  }
+  .footer-bottom-links span {
+    display: none; /* Hide separator when links are stacked */
+  }
+  .footer-bottom-links a {
+    margin: 3px 0; /* Adjust margin for stacked links */
+  }
+}

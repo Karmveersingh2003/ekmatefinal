@@ -1,0 +1,264 @@
+/* Navbar.css */
+
+/*
+  IMPORTANT: This CSS assumes that the theme variables defined in your
+  Home.css (or a global _variables.css) are available.
+  These include:
+  --home-bg-color, --home-text-color, --home-primary-color,
+  --home-secondary-color, --home-accent-color, --home-card-bg,
+  --home-font-primary, --home-font-headings, --home-font-accent,
+  --home-shadow-color,
+  and their dark theme counterparts, plus RGB versions for rgba() like:
+  --home-primary-color-rgb-light: 139, 69, 19; (for #8B4513)
+  --home-primary-color-rgb-dark: 188, 170, 164; (for #BCAAA4)
+  --home-text-color-rgb-light: 93, 64, 55; (for #5D4037)
+  --home-text-color-rgb-dark: 224, 224, 224; (for #E0E0E0)
+*/
+
+/* 1. Main Navbar Styling
+-------------------------------------------------------------------*/
+.navbar-custom {
+  background-color: var(--home-card-bg) !important; /* Override Bootstrap bg */
+  border-bottom: 1px solid var(--home-accent-color);
+  box-shadow: 0 2px 8px var(--home-shadow-color);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+/* 2. Navbar Brand
+-------------------------------------------------------------------*/
+.navbar-custom .navbar-brand {
+  color: var(--home-primary-color) !important;
+  font-family: var(--home-font-headings);
+  font-size: 1.65rem; /* Adjusted for balance */
+  font-weight: 700;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-custom .navbar-brand:hover {
+  color: var(--home-secondary-color) !important;
+}
+
+.navbar-custom .navbar-brand .fa-bus { /* Icon within brand */
+  color: var(--home-primary-color); /* Match brand text color */
+  transition: color 0.3s ease;
+  margin-right: 0.5rem; /* Spacing between icon and text */
+  font-size: 1.5rem; /* Control icon size */
+}
+.navbar-custom .navbar-brand:hover .fa-bus {
+  color: var(--home-secondary-color);
+}
+
+.navbar-custom .brand-text {
+  letter-spacing: 0.5px;
+  line-height: 1; /* Ensure text aligns well with icon */
+}
+
+
+/* 3. Navbar Links
+-------------------------------------------------------------------*/
+.navbar-custom .nav-link {
+  color: var(--home-text-color) !important;
+  font-family: var(--home-font-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem !important; /* Consistent padding */
+  margin: 0 0.25rem;
+  border-radius: 4px; /* Subtle rounding for hover effect */
+  transition: color 0.3s ease, background-color 0.3s ease;
+  text-transform: capitalize;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus {
+  color: var(--home-primary-color) !important;
+  background-color: rgba(var(--home-primary-color-rgb-light, 139, 69, 19), 0.1);
+}
+html[data-theme="dark"] .navbar-custom .nav-link:hover,
+html[data-theme="dark"] .navbar-custom .nav-link:focus {
+  background-color: rgba(var(--home-primary-color-rgb-dark, 188, 170, 164), 0.15);
+}
+
+
+.navbar-custom .nav-link.active {
+  color: var(--home-primary-color) !important;
+  font-weight: 700;
+  background-color: rgba(var(--home-primary-color-rgb-light, 139, 69, 19), 0.05);
+}
+html[data-theme="dark"] .navbar-custom .nav-link.active {
+  background-color: rgba(var(--home-primary-color-rgb-dark, 188, 170, 164), 0.1);
+}
+
+/* 4. Navbar Toggler (Hamburger Icon)
+-------------------------------------------------------------------*/
+.navbar-custom .navbar-toggler {
+  border-color: var(--home-accent-color) !important;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-custom .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(var(--home-primary-color-rgb-light, 139, 69, 19), 0.25);
+}
+html[data-theme="dark"] .navbar-custom .navbar-toggler:focus {
+   box-shadow: 0 0 0 0.2rem rgba(var(--home-primary-color-rgb-dark, 188, 170, 164), 0.25);
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(var(--home-text-color-rgb-light, 93, 64, 55), 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+html[data-theme="dark"] .navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(var(--home-text-color-rgb-dark, 224, 224, 224), 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+
+/* 5. Buttons (Sign In, Sign Up)
+   RECOMMENDATION: Remove inline styles from the JSX Button components
+   and rely on these classes for consistent theming.
+-------------------------------------------------------------------*/
+
+/* General button styling for navbar context */
+.navbar-custom .btn.custom-btn,
+.navbar-custom .btn.custom-outline-btn {
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  padding: 0.4rem 0.9rem; /* Slightly smaller padding for navbar */
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.85rem; /* Slightly smaller font for navbar buttons */
+  transition: all 0.3s ease;
+  border-width: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-left: 0.5rem;
+}
+
+/* Sign Up Button (Primary) - .custom-btn */
+.navbar-custom .btn.custom-btn {
+  background-color: var(--home-primary-color);
+  border-color: var(--home-primary-color);
+  color: var(--home-bg-color);
+}
+
+.navbar-custom .btn.custom-btn:hover,
+.navbar-custom .btn.custom-btn:focus {
+  background-color: var(--home-secondary-color);
+  border-color: var(--home-secondary-color);
+  color: var(--home-bg-color);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+}
+
+/* Sign In Button (Outline) - .custom-outline-btn */
+.navbar-custom .btn.custom-outline-btn {
+  background-color: transparent;
+  border-color: var(--home-primary-color);
+  color: var(--home-primary-color);
+}
+
+.navbar-custom .btn.custom-outline-btn:hover,
+.navbar-custom .btn.custom-outline-btn:focus {
+  background-color: var(--home-primary-color);
+  border-color: var(--home-primary-color);
+  color: var(--home-bg-color);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px var(--home-shadow-color);
+}
+
+/* 6. Theme Toggle Styling (assuming ThemeToggle component might use a specific class)
+   The ThemeToggle component from useTheme() context might have its own styling.
+   If it's a simple button and you want to style it here:
+*/
+.navbar-custom .theme-toggle-placeholder { /* Add this class to your ThemeToggle wrapper if needed */
+  margin-left: 0.75rem; /* Spacing from nav links or other buttons */
+  display: flex;
+  align-items: center;
+}
+/* Example if ThemeToggle renders a button with a known class from Home.css */
+.navbar-custom .home-theme-toggle-button {
+  position: static; /* Override fixed if it was */
+  width: 36px; /* Navbar appropriate size */
+  height: 36px;
+  font-size: 1rem;
+  box-shadow: none; /* Remove page-level shadow */
+  margin-left: 0.5rem; /* Consistent with other buttons */
+  background-color: transparent; /* Or var(--home-card-bg) */
+  border: 1px solid var(--home-accent-color);
+  color: var(--home-primary-color);
+}
+.navbar-custom .home-theme-toggle-button:hover {
+  background-color: var(--home-accent-color);
+  color: var(--home-bg-color); /* Or var(--home-text-color) if accent is light */
+  transform: scale(1.05);
+}
+
+
+/* 7. Grouping for Nav actions (ThemeToggle and Buttons) */
+.navbar-custom .navbar-nav-actions { /* Add this class to the div wrapping ThemeToggle and Buttons */
+  display: flex;
+  align-items: center;
+}
+
+
+/* 8. Responsive Adjustments
+-------------------------------------------------------------------*/
+@media (max-width: 991.98px) { /* lg breakpoint: when navbar collapses */
+  .navbar-custom .navbar-collapse {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background-color: var(--home-card-bg); /* Background for collapsed menu */
+    border: 1px solid var(--home-accent-color);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 4px 8px var(--home-shadow-color);
+  }
+
+  .navbar-custom .nav-link {
+    padding: 0.6rem 0.5rem !important;
+    margin: 0.25rem 0;
+  }
+  .navbar-custom .nav-link:hover,
+  .navbar-custom .nav-link:focus {
+    background-color: rgba(var(--home-primary-color-rgb-light, 139, 69, 19), 0.05);
+  }
+  html[data-theme="dark"] .navbar-custom .nav-link:hover,
+  html[data-theme="dark"] .navbar-custom .nav-link:focus {
+    background-color: rgba(var(--home-primary-color-rgb-dark, 188, 170, 164), 0.1);
+  }
+
+  .navbar-custom .navbar-nav-actions { /* Target the wrapper for buttons */
+    flex-direction: column;
+    align-items: stretch !important;
+    margin-top: 1rem;
+    gap: 0.5rem; /* Spacing between stacked items */
+  }
+
+  .navbar-custom .btn.custom-btn,
+  .navbar-custom .btn.custom-outline-btn,
+  .navbar-custom .home-theme-toggle-button { /* If ThemeToggle uses this class */
+    width: 100%;
+    margin-left: 0; /* Reset margin for stacked layout */
+  }
+  /* If ThemeToggle should not be full width when stacked: */
+  /* .navbar-custom .home-theme-toggle-button { width: auto; align-self: center; } */
+}
+
+@media (max-width: 575.98px) { /* Extra small devices */
+  .navbar-custom .navbar-brand {
+    font-size: 1.4rem;
+  }
+  .navbar-custom .navbar-brand .fa-bus {
+    font-size: 1.3rem;
+  }
+  .navbar-custom .nav-link {
+    font-size: 0.9rem;
+  }
+  .navbar-custom .btn.custom-btn,
+  .navbar-custom .btn.custom-outline-btn {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.8rem;
+  }
+}

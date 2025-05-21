@@ -1,0 +1,678 @@
+:root {
+  --primary-color: #9575cd; /* Changed from #0056b3 to #9575cd as requested */
+  --secondary-color: #6c757d;
+  --accent-color: #ffc107;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+
+  /* Theme colors */
+  --background-light: #f8f9fa;
+  --text-light: #343a40;
+  --background-dark: #121212;
+  --text-dark: #f8f9fa;
+  --primary-light: #9575cd;
+  --primary-dark: #b39ddb;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #1e1e1e;
+  --border-light: #dee2e6;
+  --border-dark: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light theme (default) */
+body.light-theme {
+  color: var(--text-light);
+  background-color: var(--background-light);
+}
+
+/* Dark theme */
+body.dark-theme {
+  color: var(--text-dark);
+  background-color: var(--background-dark);
+}
+
+/* Global dark theme text fix */
+.dark-theme * {
+  color: var(--text-dark);
+}
+
+/* Ensure text is visible in dark mode */
+/* Ensure text-muted and other text classes are visible in dark mode */
+.dark-theme .text-muted,
+.dark-theme .text-secondary,
+.dark-theme .activity-content p,
+.dark-theme .activity-time,
+.dark-theme .event-detail,
+.dark-theme .no-results p {
+  color: #b0b0b0 !important;
+}
+
+.dark-theme .navbar-light .navbar-nav .nav-link {
+  color: var(--text-dark);
+}
+
+.dark-theme .navbar-light .navbar-brand {
+  color: var(--text-dark);
+}
+
+/* Theme-specific styles */
+.light-theme .card,
+.light-theme .top-navbar,
+.light-theme .auth-card,
+.light-theme .navbar-custom,
+.light-theme .bottom-navbar {
+  background-color: var(--card-bg-light);
+  border-color: var(--border-light);
+  color: var(--text-light);
+}
+
+.dark-theme .card,
+.dark-theme .top-navbar,
+.dark-theme .auth-card,
+.dark-theme .navbar-custom,
+.dark-theme .bottom-navbar,
+.dark-theme .notification-dropdown,
+.dark-theme .profile-dropdown {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+.dark-theme .card-header,
+.dark-theme .card-footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+.dark-theme .sidebar {
+  background-color: #1a1a1a;
+}
+
+.dark-theme .main-content,
+.dark-theme .auth-page,
+.dark-theme .features-section,
+.dark-theme .college-section,
+.dark-theme .screenshots-section,
+.dark-theme .testimonials-section,
+.dark-theme .faq-section,
+.dark-theme .how-it-works-section,
+.dark-theme .benefits-section,
+.dark-theme .mission-section,
+.dark-theme .vision-section,
+.dark-theme .values-section,
+.dark-theme .team-section,
+.dark-theme .contact-form-section,
+.dark-theme .contact-faq-section {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.dark-theme .btn-primary {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.dark-theme .text-dark {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .nav-link,
+.dark-theme .menu-toggle,
+.dark-theme .notification-button,
+.dark-theme .section-subtitle,
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6,
+.dark-theme p,
+.dark-theme .card-text,
+.dark-theme .card-title,
+.dark-theme .card-header,
+.dark-theme .card-body,
+.dark-theme .navbar-brand,
+.dark-theme .brand-text,
+.dark-theme .nav-item,
+.dark-theme .dropdown-item,
+.dark-theme label,
+.dark-theme .form-label,
+.dark-theme .form-text {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .form-control,
+.dark-theme .form-select {
+  background-color: #2d2d2d;
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+.dark-theme .notification-item,
+.dark-theme .profile-item {
+  color: var(--text-dark);
+}
+
+.dark-theme .notification-item:hover,
+.dark-theme .profile-item:hover {
+  background-color: #2d2d2d;
+}
+
+/* Bootstrap specific dark mode overrides */
+.dark-theme .btn-outline-primary {
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.dark-theme .btn-outline-primary:hover {
+  background-color: var(--primary-dark);
+  color: var(--text-dark);
+}
+
+.dark-theme .dropdown-menu {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.dark-theme .dropdown-item {
+  color: var(--text-dark);
+}
+
+.dark-theme .dropdown-item:hover {
+  background-color: #2d2d2d;
+  color: var(--text-dark);
+}
+
+.dark-theme .navbar-toggler {
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+.dark-theme .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Dashboard tables in dark mode */
+.dark-theme table.table,
+.dark-theme .table {
+  color: #ffffff !important;
+}
+
+.dark-theme table.table thead th,
+.dark-theme .table thead th {
+  border-color: var(--border-dark);
+  color: #ffffff !important;
+}
+
+.dark-theme table.table tbody td,
+.dark-theme .table tbody td {
+  border-color: var(--border-dark);
+  color: #ffffff !important;
+}
+
+.dark-theme table.table-hover tbody tr:hover,
+.dark-theme .table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Force table text to be white in dark mode */
+.dark-theme table,
+.dark-theme th,
+.dark-theme td,
+.dark-theme tr {
+  color: #ffffff !important;
+}
+
+/* Fix stop-item in dark mode */
+.dark-theme .stop-item {
+  background-color: #2d2d2d;
+  color: var(--text-dark);
+}
+
+/* Fix badge colors in dark mode */
+.dark-theme .badge.bg-primary {
+  background-color: var(--primary-dark) !important;
+}
+
+/* Fix icon colors in dark mode */
+.dark-theme .text-primary {
+  color: var(--primary-dark) !important;
+}
+
+.dark-theme .text-success {
+  color: #4caf50 !important;
+}
+
+.dark-theme .search-icon {
+  color: #b0b0b0;
+}
+
+/* Force text to be visible in dark mode */
+.dark-theme .text-dark {
+  color: #f8f9fa !important;
+}
+
+/* Fix for Bootstrap dark text */
+.dark-theme .text-body {
+  color: #f8f9fa !important;
+}
+
+/* Fix for BusTracking page */
+.dark-theme .tracking-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.dark-theme .map-placeholder {
+  background-color: #2d2d2d;
+  color: var(--text-dark);
+}
+
+.dark-theme .map-info p {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .bus-info .info-item strong,
+.dark-theme .bus-info .info-item p,
+.dark-theme .eta-info h6,
+.dark-theme .eta-destination strong,
+.dark-theme .eta-time span,
+.dark-theme .eta-distance span {
+  color: var(--text-dark) !important;
+}
+
+/* Fix for Events page */
+.dark-theme .event-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.dark-theme .event-card .card-title,
+.dark-theme .event-card .card-text,
+.dark-theme .event-meta {
+  color: var(--text-dark) !important;
+}
+
+/* Fix for Support page */
+.dark-theme .faq-item {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.dark-theme .faq-question,
+.dark-theme .faq-answer {
+  color: var(--text-dark) !important;
+}
+
+/* Auth pages dark mode styles */
+.dark-theme .auth-page {
+  background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+}
+
+.dark-theme .auth-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .auth-title {
+  color: var(--primary-dark);
+}
+
+.dark-theme .auth-subtitle,
+.dark-theme .auth-card .form-label,
+.dark-theme .auth-card p {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .auth-link {
+  color: var(--primary-dark);
+}
+
+.dark-theme .auth-link:hover {
+  color: #b39ddb;
+}
+
+/* Fix placeholder color in dark mode */
+.dark-theme .form-control::placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+.dark-theme .form-control::-webkit-input-placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+.dark-theme .form-control::-moz-placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+.dark-theme .form-control:-ms-input-placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+.dark-theme .form-control::-ms-input-placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+/* Contact page dark mode styles */
+.dark-theme .contact-text,
+.dark-theme .contact-details h5,
+.dark-theme .contact-details p,
+.dark-theme .faq-item h4,
+.dark-theme .faq-item p,
+.dark-theme .form-label {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .contact-info {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .contact-icon {
+  color: var(--primary-dark);
+}
+
+.dark-theme .faq-item {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .faq-item h4 {
+  color: var(--primary-dark);
+}
+
+.dark-theme .form-control,
+.dark-theme .form-select,
+.dark-theme .form-check-input,
+.dark-theme .input-group-text {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: var(--text-dark);
+}
+
+.dark-theme .form-check-input:checked {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.dark-theme .form-label,
+.dark-theme .form-check-label,
+.dark-theme .form-text {
+  color: var(--text-dark) !important;
+}
+
+/* Fix placeholder color in dark mode */
+.dark-theme .form-control::placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+.dark-theme .form-control::-webkit-input-placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+.dark-theme .form-control::-moz-placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+.dark-theme .form-control:-ms-input-placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+.dark-theme .form-control::-ms-input-placeholder {
+  color: #aaaaaa !important;
+  opacity: 1;
+}
+
+/* Fix for How it works section */
+.dark-theme .step-content h4,
+.dark-theme .step-content p {
+  color: #f8f9fa !important;
+}
+
+/* Fix for Benefits section */
+.dark-theme .benefit-item h4,
+.dark-theme .benefit-item p {
+  color: #f8f9fa !important;
+}
+
+.dark-theme .step-number {
+  background-color: var(--primary-dark);
+  color: #121212;
+}
+
+.dark-theme .steps-container::before {
+  background-color: var(--primary-dark);
+}
+
+.dark-theme .benefit-item,
+.dark-theme .testimonial-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .testimonial-quote::before,
+.dark-theme .testimonial-quote::after {
+  color: var(--primary-dark);
+}
+
+.dark-theme .testimonial-author {
+  color: #b0b0b0;
+}
+
+/* About page dark mode styles */
+.dark-theme .mission-text,
+.dark-theme .vision-text,
+.dark-theme .get-involved-text {
+  color: var(--text-dark) !important;
+}
+
+.dark-theme .value-card,
+.dark-theme .team-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .value-icon {
+  color: var(--primary-dark);
+}
+
+.dark-theme .team-role {
+  color: var(--primary-dark);
+}
+
+.dark-theme .team-name,
+.dark-theme .value-title,
+.dark-theme .team-bio,
+.dark-theme .value-card .card-text,
+.dark-theme .section-title,
+.dark-theme .section-subtitle {
+  color: var(--text-dark) !important;
+}
+
+/* Fix for section titles in About page */
+.dark-theme .mission-section .section-title,
+.dark-theme .vision-section .section-title,
+.dark-theme .values-section .section-title,
+.dark-theme .team-section .section-title,
+.dark-theme .contact-form-section .section-title,
+.dark-theme .contact-faq-section .section-title {
+  color: var(--text-dark) !important;
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--primary-dark);
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: #7e57c2; /* Updated to a darker shade of our purple */
+  border-color: #7e57c2;
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* Override Bootstrap's default focus styles */
+.btn:focus, .btn.focus,
+.btn-primary:focus, .btn-primary.focus,
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+  box-shadow: 0 0 0 0.25rem rgba(149, 117, 205, 0.25) !important;
+}
+
+/* Custom button styles */
+.custom-outline-btn:hover {
+  background-color: #9575cd !important;
+  border-color: #9575cd !important;
+  color: white !important;
+}
+
+.custom-btn:hover {
+  background-color: #7e57c2 !important;
+  border-color: #7e57c2 !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* Fix for mobile views to prevent vertical scrolling */
+  .container-fluid {
+    padding-bottom: 60px; /* Match bottom navbar height */
+  }
+
+  /* Ensure content doesn't overflow */
+  .row, .col, [class*="col-"] {
+    max-width: 100%;
+  }
+}
+
+/* Fix for Feedback page */
+.dark-theme .feedback-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.dark-theme .feedback-card .card-title,
+.dark-theme .feedback-card .card-text,
+.dark-theme .feedback-meta,
+.dark-theme .rating-label,
+.dark-theme .feedback-type-label {
+  color: var(--text-dark) !important;
+}
+
+/* Fix for UserPreferences page */
+.dark-theme .preferences-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.dark-theme .preferences-card .card-title,
+.dark-theme .preferences-card .card-text,
+.dark-theme .preference-label,
+.dark-theme .preference-value,
+.dark-theme .form-check-label {
+  color: var(--text-dark) !important;
+}
+
+/* Fix for list groups in dark mode */
+.dark-theme .list-group-item {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}

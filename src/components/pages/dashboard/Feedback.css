@@ -1,0 +1,174 @@
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Dark mode fixes for page header */
+.dark-theme .page-header h1 {
+  color: #ffffff !important;
+}
+
+.dark-theme .page-header p,
+.dark-theme .feedback-subtitle {
+  color: #b0b0b0 !important;
+}
+
+.feedback-card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.feedback-card .card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 1.25rem;
+}
+
+/* Dark mode fixes for feedback card */
+.dark-theme .feedback-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .feedback-card .card-header {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.dark-theme .feedback-card .card-header h5 {
+  color: #ffffff !important;
+}
+
+.star-rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.star-rating {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #d1d1d1;
+  margin-right: 0.25rem;
+}
+
+.star-rating.active,
+.star-rating .active {
+  color: #ffc107;
+}
+
+.feedback-list {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.feedback-item {
+  padding: 1.25rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* Dark mode fixes for feedback items */
+.dark-theme .feedback-item {
+  border-bottom-color: var(--border-dark);
+}
+
+.dark-theme .feedback-item h6 {
+  color: #ffffff !important;
+}
+
+.feedback-item:last-child {
+  border-bottom: none;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.feedback-meta {
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.feedback-date {
+  color: #6c757d;
+}
+
+/* Dark mode fixes for feedback date */
+.dark-theme .feedback-date {
+  color: #b0b0b0 !important;
+}
+
+.feedback-rating {
+  font-size: 0.9rem;
+}
+
+.feedback-comment {
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+/* Dark mode fixes for feedback comments */
+.dark-theme .feedback-comment {
+  color: #e0e0e0 !important;
+}
+
+.feedback-response {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 0.75rem;
+}
+
+/* Dark mode fixes for feedback response */
+.dark-theme .feedback-response {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .feedback-response p {
+  color: #e0e0e0 !important;
+}
+
+.response-header {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #28a745;
+}
+
+.feedback-response p {
+  margin-bottom: 0;
+  color: #555;
+}
+
+/* Form labels in dark mode */
+.dark-theme .form-label,
+.dark-theme .form-check-label {
+  color: #ffffff !important;
+}
+
+/* No results message in dark mode */
+.dark-theme .no-results {
+  color: #b0b0b0 !important;
+}
+
+@media (max-width: 992px) {
+  .feedback-card {
+    margin-bottom: 1.5rem;
+  }
+}

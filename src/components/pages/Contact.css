@@ -1,0 +1,376 @@
+/* Contact.css */
+
+/* Ensure your theme variables from Home.css (or a global CSS file) are available.
+   If not, you might need to redefine :root variables here or import them.
+   This CSS assumes variables like --home-bg-color, --home-text-color, etc., are defined.
+*/
+
+/* General Page Styles for Contact */
+.contact-main-container { /* If you wrap <main> with this class like in Home.js */
+  background-color: var(--home-bg-color);
+  color: var(--home-text-color);
+  font-family: var(--home-font-primary);
+}
+
+/* Helper to match Home.js section styling */
+.section {
+  padding: 80px 0;
+  position: relative;
+  background-color: var(--home-bg-color); /* Default section background */
+}
+
+.section:nth-of-type(even) {
+    /* Match alternating background from Home.css if desired */
+    background-color: rgba(var(--home-accent-color-rgb, 210, 180, 140), 0.05); /* Default to light theme accent */
+}
+html[data-theme="dark"] .section:nth-of-type(even) {
+    background-color: rgba(var(--home-accent-color-rgb, 109, 76, 65), 0.1); /* Dark theme accent */
+}
+
+
+/* Contact Hero Section */
+.contact-hero-section {
+  padding: 80px 0;
+  background-color: var(--home-secondary-color); /* A solid, thematic color */
+  /* Or, for a textured look like Home hero:
+  background-image: linear-gradient(rgba(var(--home-hero-overlay-color-rgb), 0.7), rgba(var(--home-hero-overlay-color-rgb), 0.9)), url('./img/antique-paper-texture.jpg');
+  background-size: cover;
+  background-position: center;
+  */
+  text-align: center;
+  color: var(--home-bg-color); /* Light text on dark background */
+}
+
+.contact-hero-section .contact-title {
+  font-family: var(--home-font-headings);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: inherit; /* Inherits from .contact-hero-section */
+}
+
+.contact-hero-section .contact-subtitle {
+  font-family: var(--home-font-accent);
+  font-size: 1.3rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: inherit;
+}
+
+/* Section Titles (General) */
+.section-title { /* Used for "Get In Touch", "Contact Information", "Frequently Asked Questions" */
+  font-family: var(--home-font-headings);
+  font-size: 2.5rem;
+  color: var(--home-primary-color);
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 700;
+}
+.section-title.text-start {
+  text-align: left;
+}
+.section-title.text-center {
+  text-align: center;
+}
+
+/* To make it ornate like home titles, add .home-ornate-title class from Home.css
+   and ensure its styles are available */
+.section-title.home-ornate-title span::before,
+.section-title.home-ornate-title span::after {
+  background-color: var(--home-accent-color);
+}
+
+
+/* Contact Text (General Paragraph) */
+.contact-text {
+  font-family: var(--home-font-accent);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--home-text-color);
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+
+/* Contact Form Section */
+.contact-form-section {
+  /* Uses .section base styles */
+}
+
+/* Form Styling */
+.contact-form-section .form-label {
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  color: var(--home-primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.contact-form-section .form-control,
+.contact-form-section .form-select {
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-accent-color);
+  color: var(--home-text-color);
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-family: var(--home-font-accent);
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.contact-form-section .form-control::placeholder {
+  color: var(--home-accent-color);
+  opacity: 0.8;
+}
+
+.contact-form-section .form-control:focus,
+.contact-form-section .form-select:focus {
+  border-color: var(--home-primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(var(--home-primary-color-rgb, 139, 69, 19), 0.25); /* Match Bootstrap focus, themed */
+  background-color: var(--home-card-bg); /* Keep bg on focus */
+  color: var(--home-text-color); /* Keep text color on focus */
+}
+
+.contact-form-section .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%235D4037' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); /* Brown arrow */
+}
+html[data-theme="dark"] .contact-form-section .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23E0E0E0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); /* Light arrow for dark theme */
+}
+
+/* Button (reusing home button styles) */
+/* Ensure you add these classes to your Button in JSX: className="custom-btn home-antique-button home-primary-button"
+   AND REMOVE THE INLINE STYLE from the Button component */
+.custom-btn.home-antique-button.home-primary-button {
+  /* Styles will be inherited from Home.css definitions */
+  /* If Home.css is not loaded, you'd redefine them here: */
+  /*
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-width: 2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: var(--home-primary-color);
+  border-color: var(--home-primary-color);
+  color: var(--home-bg-color);
+  */
+}
+.custom-btn.home-antique-button.home-primary-button:hover {
+  /*
+  background-color: var(--home-secondary-color);
+  border-color: var(--home-secondary-color);
+  color: var(--home-bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  */
+}
+
+/* Alert Styling */
+.contact-form-section .alert {
+  border-radius: 6px;
+  padding: 15px;
+  font-family: var(--home-font-accent);
+  border-width: 1px;
+  border-style: solid;
+}
+
+.contact-form-section .alert-success {
+  background-color: rgba(var(--home-primary-color-rgb, 139, 69, 19), 0.1); /* Light brown/greenish tint */
+  color: var(--home-primary-color);
+  border-color: var(--home-accent-color);
+}
+html[data-theme="dark"] .contact-form-section .alert-success {
+  background-color: rgba(var(--home-primary-color-rgb-dark, 188, 170, 164), 0.15);
+  color: var(--home-primary-color-dark);
+  border-color: var(--home-accent-color-dark);
+}
+
+.contact-form-section .alert-danger {
+  background-color: rgba(176, 0, 32, 0.1); /* Muted red tint */
+  color: #842029; /* Bootstrap default dark red */
+  border-color: #f5c2c7; /* Bootstrap default light red border */
+}
+html[data-theme="light"] .contact-form-section .alert-danger {
+  background-color: rgba(165, 42, 42, 0.1); /* Brownish-red tint for light theme */
+  color: #A52A2A; /* Brown */
+  border-color: #d3a0a0;
+}
+html[data-theme="dark"] .contact-form-section .alert-danger {
+  background-color: rgba(220, 53, 69, 0.2); /* More visible red on dark */
+  color: #f8d7da; /* Light red text */
+  border-color: #dc3545;
+}
+
+
+/* Contact Info Section */
+.contact-info {
+  padding: 30px;
+  background-color: var(--home-vellum-bg); /* Reusing vellum style */
+  border-radius: 8px;
+  border: 1px solid var(--home-accent-color);
+  box-shadow: 0 5px 15px var(--home-shadow-color);
+  height: 73%; /* To match form column height if desired */
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  font-size: 1.8rem;
+  color: var(--home-primary-color);
+  margin-right: 20px;
+  margin-top: 5px; /* Align with first line of text */
+  flex-shrink: 0;
+  width: 30px; /* Ensure consistent spacing */
+  text-align: center;
+}
+
+.contact-details h5 {
+  font-family: var(--home-font-headings);
+  font-size: 1.3rem;
+  color: var(--home-primary-color);
+  margin-bottom: 5px;
+}
+
+.contact-details p {
+  font-family: var(--home-font-accent);
+  font-size: 1rem;
+  color: var(--home-text-color);
+  margin-bottom: 3px;
+  line-height: 1.6;
+}
+
+/* Contact Map */
+.contact-map iframe {
+  border: 2px solid var(--home-accent-color) !important; /* Ensure border is applied */
+  border-radius: 10px; /* Already in JSX, just to confirm */
+  box-shadow: 0 4px 12px var(--home-shadow-color);
+  filter: sepia(0.2) contrast(0.9) brightness(1.05); /* Subtle antique filter */
+}
+
+
+/* FAQ Section */
+.contact-faq-section {
+  /* Uses .section base styles */
+}
+/* Re-using .home-section-subtitle for consistency */
+.contact-faq-section .section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: var(--home-font-accent);
+  color: var(--home-text-color);
+  margin-bottom: 40px; /* Reduced from 60px */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+}
+
+
+.faq-item {
+  padding: 25px;
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px var(--home-shadow-color);
+  margin-bottom: 20px; /* For when they stack on mobile */
+  height: 100%; /* For equal height columns on larger screens */
+}
+
+.faq-item h4 {
+  font-family: var(--home-font-headings);
+  font-size: 1.4rem;
+  color: var(--home-primary-color);
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-family: var(--home-font-accent);
+  font-size: 1rem;
+  color: var(--home-text-color);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+
+/* Responsive Design */
+@media (max-width: 991.98px) { /* Medium devices (tablets) */
+  .contact-hero-section .contact-title,
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .contact-hero-section .contact-subtitle {
+    font-size: 1.1rem;
+  }
+  .contact-info {
+    margin-top: 30px; /* Add space if it stacks below form */
+  }
+}
+
+@media (max-width: 767.98px) { /* Small devices (landscape phones) */
+  .section {
+    padding: 60px 0;
+  }
+  .contact-hero-section .contact-title,
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .contact-hero-section .contact-subtitle,
+  .contact-faq-section .section-subtitle {
+    font-size: 1rem;
+  }
+  .contact-text {
+    font-size: 0.95rem;
+  }
+  .contact-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+  .contact-details h5 {
+    font-size: 1.1rem;
+  }
+  .contact-details p,
+  .faq-item p {
+    font-size: 0.9rem;
+  }
+  .faq-item h4 {
+    font-size: 1.2rem;
+  }
+  .faq-item {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (portrait phones) */
+  .contact-hero-section {
+    padding: 50px 0;
+  }
+  .contact-hero-section .contact-title,
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .contact-form-section .form-control,
+  .contact-form-section .form-select {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .custom-btn.home-antique-button { /* For the submit button */
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

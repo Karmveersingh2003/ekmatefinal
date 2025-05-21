@@ -1,0 +1,114 @@
+.admin-buses .search-input {
+  position: relative;
+}
+
+.admin-buses .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.admin-buses .search-input .form-control {
+  padding-left: 35px;
+  border-radius: 4px;
+}
+
+.admin-buses .admin-table th {
+  white-space: nowrap;
+}
+
+.admin-buses .badge {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
+}
+
+/* Feature badges */
+.admin-buses .badge.bg-info {
+  background-color: #9370DB !important;
+}
+
+/* Status badges */
+.admin-buses .badge.bg-success {
+  background-color: #28a745;
+}
+
+.admin-buses .badge.bg-danger {
+  background-color: #dc3545;
+}
+
+.admin-buses .badge.bg-warning {
+  background-color: #ffc107;
+}
+
+/* Action buttons */
+.admin-buses .btn-outline-primary {
+  border-color: #9370DB;
+  color: #9370DB;
+}
+
+.admin-buses .btn-outline-primary:hover {
+  background-color: #9370DB;
+  border-color: #9370DB;
+  color: white;
+}
+
+.admin-buses .btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.admin-buses .btn-outline-danger:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+/* Modal styles */
+.modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #eee;
+}
+
+/* Form styles */
+.form-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #9370DB;
+  box-shadow: 0 0 0 0.25rem rgba(147, 112, 219, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: #9370DB;
+  border-color: #9370DB;
+}
+
+.form-check-input:focus {
+  border-color: #9370DB;
+  box-shadow: 0 0 0 0.25rem rgba(147, 112, 219, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .admin-buses .page-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .admin-buses .page-title h1 {
+    margin-bottom: 15px;
+  }
+  
+  .admin-buses .admin-table {
+    font-size: 0.875rem;
+  }
+}

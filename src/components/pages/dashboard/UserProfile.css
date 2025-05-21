@@ -1,0 +1,141 @@
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.profile-subtitle {
+  color: #6c757d;
+}
+
+.profile-card {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.profile-avatar-large {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 5px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.info-label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.info-icon {
+  margin-right: 8px;
+  color: var(--primary-color);
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Dark mode styles */
+.dark-theme .profile-card {
+  background-color: var(--card-bg-dark);
+  border-color: var(--border-dark);
+}
+
+.dark-theme .profile-subtitle,
+.dark-theme .stat-label,
+.dark-theme .info-label {
+  color: #b0b0b0;
+}
+
+.dark-theme .stat-value {
+  color: var(--primary-dark);
+}
+
+.dark-theme .info-icon {
+  color: var(--primary-dark);
+}
+
+.dark-theme .profile-stats {
+  border-top-color: var(--border-dark);
+}
+
+.dark-theme .info-item {
+  border-bottom-color: var(--border-dark);
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  .profile-avatar-large {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+  }
+  
+  .info-item {
+    padding-bottom: 10px;
+  }
+  
+  .info-value {
+    font-size: 15px;
+  }
+}

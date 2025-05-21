@@ -1,0 +1,869 @@
+/* About.css */
+
+/*------------------------------------------------------------------
+[Table of Contents]
+
+1.  Page Base & General "About" Section Styling
+    - Assuming Home.css variables are globally available
+2.  Enhanced Hero Section
+3.  Section Headers (Common)
+4.  Story / Timeline Section
+5.  Differentiators Section
+6.  Mission & Vision Section
+7.  Core Values Section (Refined)
+8.  Impact & Statistics Section
+9.  Meet The Team Section (Refined)
+10. Technology We Use Section
+11. User Testimonials Section
+12. Future Roadmap Section
+13. Get Involved Section (Enhanced CTA)
+14. Shared Card & Item Styling (Antique Theme)
+15. Buttons (Reusing/Adapting from Home.css)
+16. Responsive Design
+-------------------------------------------------------------------*/
+
+/* 1. Page Base & General "About" Section Styling
+-------------------------------------------------------------------*/
+.about-page-enhanced {
+  background-color: var(--home-bg-color);
+  color: var(--home-text-color);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* General section styling, similar to home-section */
+.about-section {
+  padding: 70px 0;
+  position: relative;
+}
+
+.about-section:nth-of-type(even) {
+  background-color: rgba(var(--home-accent-color-rgb, 210, 180, 140), 0.04); /* Very subtle alternating bg */
+}
+html[data-theme="dark"] .about-section:nth-of-type(even) {
+  background-color: rgba(var(--home-accent-color-rgb, 109, 76, 65), 0.08);
+}
+
+/* 2. Enhanced Hero Section
+-------------------------------------------------------------------*/
+.about-hero-enhanced-section {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px;
+  color: #fff; /* Default, overlay will modify */
+  overflow: hidden;
+}
+
+.about-hero-enhanced-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./img/vintage-library-bg.jpg'); /* Replace with an actual relevant antique image */
+  background-size: cover;
+  background-position: center;
+  filter: sepia(0.3) brightness(0.7);
+  z-index: 1;
+}
+
+.about-hero-enhanced-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--home-hero-overlay-color-rgb, 93, 64, 55), 0.65); /* Using hero overlay color from Home.css */
+  z-index: 2;
+}
+
+.about-hero-enhanced-content {
+  position: relative;
+  z-index: 3;
+}
+
+.about-hero-enhanced-tagline {
+  font-family: var(--home-font-accent);
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--home-accent-color); /* Lighter accent for contrast */
+  opacity: 0.9;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+html[data-theme="dark"] .about-hero-enhanced-tagline {
+    color: var(--home-secondary-color-dark);
+}
+
+
+.about-hero-enhanced-title {
+  font-family: var(--home-font-headings);
+  font-size: 3.5rem;
+  color: #fff; /* White title on dark overlay */
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.about-hero-enhanced-subtitle {
+  font-family: var(--home-font-primary);
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9); /* Light text on dark overlay */
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  line-height: 1.7;
+}
+
+.about-hero-enhanced-cta.btn-light {
+  /* Adapt antique button style, but with light base for hero */
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 2px solid #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  backdrop-filter: blur(2px);
+}
+.about-hero-enhanced-cta.btn-light:hover {
+  background-color: #fff;
+  color: var(--home-primary-color);
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+
+/* 3. Section Headers (Common)
+-------------------------------------------------------------------*/
+.about-section-header {
+  margin-bottom: 50px;
+}
+
+.about-header-icon {
+  font-size: 3rem;
+  color: var(--home-primary-color);
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Adapting home-ornate-title for about page */
+.about-section-title {
+  font-family: var(--home-font-headings);
+  font-size: 2.6rem;
+  color: var(--home-primary-color);
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+.about-section-header.text-center .about-section-title::after { /* Simple underline for centered titles */
+  content: '';
+  display: block;
+  width: 70px;
+  height: 3px;
+  background-color: var(--home-accent-color);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.about-section-description {
+  font-family: var(--home-font-accent);
+  font-size: 1.15rem;
+  color: var(--home-text-color);
+  opacity: 0.85;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* For inline titles like in Mission/Vision */
+.about-icon-heading-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.about-header-icon-inline {
+  font-size: 2.2rem;
+  color: var(--home-primary-color);
+  margin-right: 15px;
+}
+.about-section-title-inline {
+  font-family: var(--home-font-headings);
+  font-size: 2.2rem;
+  color: var(--home-primary-color);
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+
+/* 4. Story / Timeline Section
+-------------------------------------------------------------------*/
+.about-story-section .about-section-header {
+    margin-bottom: 70px;
+}
+.about-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-timeline::after { /* The central timeline bar */
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: var(--home-accent-color);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 2px;
+}
+
+.about-timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+/* The circle on the timeline */
+.about-timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -10px;
+  background-color: var(--home-bg-color);
+  border: 4px solid var(--home-primary-color);
+  top: 25px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.about-timeline-item-left {
+  left: 0;
+}
+.about-timeline-item-right {
+  left: 50%;
+}
+
+.about-timeline-item-left::before { /* Connector */
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 32px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid var(--home-card-border);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent var(--home-card-bg);
+}
+.about-timeline-item-right::before { /* Connector */
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 32px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid var(--home-card-border);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent var(--home-card-bg) transparent transparent;
+}
+
+.about-timeline-item-right::after {
+  left: -10px;
+}
+
+.about-timeline-content {
+  padding: 20px 25px;
+  background-color: var(--home-card-bg);
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--home-card-border);
+  box-shadow: 0 3px 10px var(--home-shadow-color);
+}
+
+.about-timeline-year {
+  display: block;
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  color: var(--home-secondary-color);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.about-timeline-title {
+  font-family: var(--home-font-headings);
+  font-size: 1.5rem;
+  color: var(--home-primary-color);
+  margin-bottom: 10px;
+}
+
+.about-timeline-description {
+  font-family: var(--home-font-accent);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--home-text-color);
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+/* 5. Differentiators Section
+-------------------------------------------------------------------*/
+.about-differentiator-card {
+  /* Uses .home-antique-card styling (assumed or define similar) */
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px var(--home-shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.about-differentiator-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--home-shadow-color);
+}
+
+.about-differentiator-icon-wrapper {
+  font-size: 2.8rem;
+  color: var(--home-primary-color);
+  margin-bottom: 20px;
+  line-height: 1; /* Ensure icon wrapper doesn't add extra space */
+}
+.about-differentiator-icon-wrapper svg { /* For React Icons */
+    display: inline-block;
+}
+
+.about-differentiator-title {
+  font-family: var(--home-font-headings);
+  font-size: 1.4rem;
+  color: var(--home-primary-color);
+  margin-bottom: 10px;
+}
+
+.about-differentiator-text {
+  font-family: var(--home-font-accent);
+  font-size: 0.95rem;
+  color: var(--home-text-color);
+  opacity: 0.9;
+  flex-grow: 1;
+}
+
+/* 6. Mission & Vision Section
+-------------------------------------------------------------------*/
+.about-mission-vision-section {
+    background-color: rgba(var(--home-vellum-bg-rgb, 245, 222, 179), 0.5); /* Light vellum tint */
+    padding: 80px 0;
+}
+html[data-theme="light"] { --home-vellum-bg-rgb: 245, 222, 179; }
+html[data-theme="dark"] {
+    --home-vellum-bg-rgb: 62, 39, 35;
+    .about-mission-vision-section {
+        background-color: rgba(var(--home-vellum-bg-rgb), 0.7);
+    }
+}
+
+.about-mission-content,
+.about-vision-content {
+  padding: 25px;
+  /* border: 1px solid var(--home-accent-color);
+  border-radius: 8px;
+  background-color: var(--home-card-bg);
+  box-shadow: 0 4px 12px var(--home-shadow-color); */
+}
+
+.about-section-text-lead {
+  font-family: var(--home-font-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--home-primary-color);
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-section-text {
+  font-family: var(--home-font-accent);
+  font-size: 1.05rem;
+  color: var(--home-text-color);
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+/* 7. Core Values Section (Refined)
+-------------------------------------------------------------------*/
+.about-value-card-refined {
+  background-color: var(--home-vellum-bg);
+  padding: 30px 25px;
+  border-radius: 10px;
+  border: 1px solid var(--home-accent-color);
+  text-align: center;
+  box-shadow: 0 4px 12px var(--home-shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* For d-flex */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-value-card-refined:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 18px var(--home-shadow-color);
+}
+
+.about-value-icon-refined-wrapper {
+  font-size: 2.5rem;
+  color: var(--home-bg-color);
+  background-color: var(--home-primary-color);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 3px solid var(--home-accent-color);
+}
+
+.about-value-title-refined {
+  font-family: var(--home-font-headings);
+  font-size: 1.5rem;
+  color: var(--home-primary-color);
+  margin-bottom: 10px;
+}
+
+.about-value-text-refined {
+  font-family: var(--home-font-accent);
+  font-size: 0.95rem;
+  color: var(--home-text-color);
+  opacity: 0.9;
+}
+
+/* 8. Impact & Statistics Section
+-------------------------------------------------------------------*/
+.about-stat-item {
+  padding: 20px;
+  background-color: var(--home-card-bg);
+  border-radius: 8px;
+  border: 1px solid var(--home-card-border);
+  box-shadow: 0 3px 8px var(--home-shadow-color);
+}
+
+.about-stat-number {
+  font-family: var(--home-font-headings);
+  font-size: 2.8rem;
+  color: var(--home-primary-color);
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.about-stat-label {
+  font-family: var(--home-font-primary);
+  font-size: 1rem;
+  color: var(--home-text-color);
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+.about-campus-map-illustration {
+    border: 3px solid var(--home-accent-color);
+    padding: 5px;
+    background-color: var(--home-card-bg);
+    filter: sepia(0.2) contrast(0.95);
+}
+
+/* 9. Meet The Team Section (Refined)
+-------------------------------------------------------------------*/
+.about-team-card-refined {
+  /* Reuses .home-antique-card idea */
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px var(--home-shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px; /* Control card width */
+}
+.about-team-card-refined:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px var(--home-shadow-color);
+}
+
+.about-team-img-wrapper {
+  overflow: hidden;
+  border-top-left-radius: 9px; /* Match card radius */
+  border-top-right-radius: 9px;
+  height: 280px; /* Fixed height for images */
+  background-color: var(--home-accent-color); /* Fallback bg */
+}
+
+.about-team-img-refined {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.15) contrast(0.95) saturate(1.1);
+  transition: transform 0.4s ease;
+}
+.about-team-card-refined:hover .about-team-img-refined {
+    transform: scale(1.05);
+}
+
+.about-team-card-refined .card-body {
+    padding: 20px;
+}
+
+.about-team-name-refined {
+  font-family: var(--home-font-headings);
+  font-size: 1.6rem;
+  color: var(--home-primary-color);
+  margin-bottom: 5px;
+}
+
+.about-team-role-refined {
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--home-secondary-color);
+  margin-bottom: 10px !important; /* Override bootstrap mb-2 */
+}
+
+.about-team-bio-refined {
+  font-family: var(--home-font-accent);
+  font-size: 0.9rem;
+  color: var(--home-text-color);
+  opacity: 0.85;
+  min-height: 60px; /* Give some space for bio */
+  margin-bottom: 15px;
+}
+
+.about-team-social-links a {
+  color: var(--home-secondary-color);
+  font-size: 1.3rem;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+.about-team-social-links a:hover {
+  color: var(--home-primary-color);
+}
+
+/* 10. Technology We Use Section
+-------------------------------------------------------------------*/
+.about-tech-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px var(--home-shadow-color);
+  transition: transform 0.2s ease;
+}
+.about-tech-logo-item:hover {
+    transform: scale(1.05);
+}
+
+.about-tech-logo-item i,
+.about-tech-logo-item svg { /* For FontAwesome or React Icons */
+  color: var(--home-primary-color);
+  margin-bottom: 10px;
+  font-size: 2.5rem; /* Default for FA, react-icons might need direct prop */
+}
+.about-tech-logo-item p {
+  font-family: var(--home-font-primary);
+  font-size: 0.9rem;
+  color: var(--home-text-color);
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+/* 11. User Testimonials Section
+-------------------------------------------------------------------*/
+.about-testimonials-section {
+    background-color: rgba(var(--home-accent-color-rgb, 210, 180, 140), 0.06);
+}
+html[data-theme="dark"] .about-testimonials-section {
+    background-color: rgba(var(--home-accent-color-rgb, 109, 76, 65), 0.1);
+}
+
+.about-testimonial-card {
+  /* Similar to home-testimonial-card */
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px var(--home-shadow-color);
+  padding: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-testimonial-quote-icon {
+  font-family: 'Times New Roman', Times, serif; /* Classic quote font */
+  font-size: 4rem;
+  color: var(--home-accent-color);
+  line-height: 1;
+  margin-bottom: -10px; /* Pull text up slightly */
+  opacity: 0.7;
+}
+
+.about-testimonial-text {
+  font-family: var(--home-font-accent);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--home-text-color);
+  margin-bottom: 20px;
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+.about-testimonial-author-info {
+  display: flex;
+  align-items: center;
+  margin-top: auto; /* Pushes to bottom if card body is flex */
+}
+
+.about-testimonial-author-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 2px solid var(--home-accent-color);
+}
+
+.about-testimonial-author {
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--home-primary-color);
+}
+
+
+/* 12. Future Roadmap Section
+-------------------------------------------------------------------*/
+.about-roadmap-item {
+  background-color: var(--home-vellum-bg);
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 5px solid var(--home-primary-color);
+  box-shadow: 0 4px 10px var(--home-shadow-color);
+  height: 100%; /* For align-items-stretch on row */
+  display: flex;
+  flex-direction: column;
+}
+
+.about-roadmap-item h4 {
+  font-family: var(--home-font-headings);
+  font-size: 1.4rem;
+  color: var(--home-primary-color);
+  margin-bottom: 10px;
+}
+
+.about-roadmap-item p {
+  font-family: var(--home-font-accent);
+  font-size: 0.95rem;
+  color: var(--home-text-color);
+  opacity: 0.9;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.about-roadmap-status {
+  display: inline-block;
+  padding: 5px 12px;
+  font-family: var(--home-font-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-top: auto; /* Pushes to bottom */
+  align-self: flex-start; /* Align to left */
+}
+.about-roadmap-item span[class*="about-roadmap-status"] { /* More specific */
+    color: var(--home-bg-color);
+}
+.about-roadmap-status:where([class*="In Progress"]) { /* If you add specific classes */
+  background-color: var(--home-secondary-color);
+}
+.about-roadmap-status:where([class*="Planned"]) {
+  background-color: var(--home-accent-color);
+  color: var(--home-primary-color); /* Text might need contrast */
+}
+.about-roadmap-status:where([class*="Exploring"]) {
+  background-color: #a7a7a7; /* Neutral gray */
+}
+/* Default if no specific class like "In Progress" is used */
+span.about-roadmap-status {
+    background-color: var(--home-secondary-color);
+    color: var(--home-bg-color);
+}
+
+
+/* 13. Get Involved Section (Enhanced CTA)
+-------------------------------------------------------------------*/
+.about-get-involved-enhanced-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--home-secondary-color), var(--home-primary-color));
+  color: var(--home-bg-color); /* Light text on dark bg */
+  position: relative;
+  overflow: hidden;
+}
+/* Optional: Add grain or pattern like home-cta-grain-overlay if desired */
+.about-get-involved-enhanced-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYqBgYOLi4uAgIBWVlZgYGCqqqqUlJRecXCEAAAAJklEQVR42mNgAFAKBggCFgQkAAAAHgAACAEAArMCC0AAAAASUVORK5CYII=');
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.about-header-icon-large {
+  font-size: 4rem;
+  color: var(--home-bg-color); /* Light icon on dark bg */
+  opacity: 0.8;
+}
+
+.about-section-title-light { /* For titles on dark backgrounds */
+  font-family: var(--home-font-headings);
+  font-size: 2.5rem;
+  color: var(--home-bg-color);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.about-get-involved-enhanced-text {
+  font-family: var(--home-font-accent);
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 35px auto;
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+.about-get-involved-enhanced-button.btn-light {
+  /* Adapting home-cta-button style */
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border-width: 2px;
+  background-color: var(--home-bg-color); /* Light button bg */
+  border-color: var(--home-bg-color);
+  color: var(--home-primary-color); /* Dark text on light button */
+}
+.about-get-involved-enhanced-button.btn-light:hover {
+  background-color: transparent;
+  border-color: var(--home-bg-color);
+  color: var(--home-bg-color);
+  transform: translateY(-2px);
+}
+
+
+/* 14. Shared Card & Item Styling (Antique Theme)
+   - Many card styles are defined within their sections for specificity.
+   - General .card overrides for Bootstrap cards if needed for antique theme:
+*/
+.about-page-enhanced .card {
+  /* Ensure no default Bootstrap borders interfere if not overridden */
+  /* border: none; */ /* Uncomment if Bootstrap borders are problematic */
+}
+
+
+/* 15. Buttons (Reusing/Adapting from Home.css)
+   - Button styles are mostly defined within their specific sections (hero, CTA)
+   - If general antique buttons are needed, refer to Home.css .home-antique-button
+*/
+
+
+/* 16. Responsive Design
+-------------------------------------------------------------------*/
+@media (max-width: 991.98px) { /* Tablets */
+  .about-hero-enhanced-title { font-size: 2.8rem; }
+  .about-hero-enhanced-tagline { font-size: 1.5rem; }
+  .about-hero-enhanced-subtitle { font-size: 1.1rem; }
+
+  .about-section-title { font-size: 2.2rem; }
+  .about-section-title-inline { font-size: 1.9rem; }
+  .about-section-description { font-size: 1.05rem; }
+
+  .about-timeline::after { left: 30px; margin-left:0; }
+  .about-timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; margin-bottom: 40px; }
+  .about-timeline-item-left::before, .about-timeline-item-right::before {
+    left: 60px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--home-card-bg) transparent transparent;
+  }
+  .about-timeline-item-left::after, .about-timeline-item-right::after {
+    left: 20px; /* Adjusted for new timeline position */
+  }
+  .about-timeline-item-right { left: 0%; } /* Stack them */
+}
+
+@media (max-width: 767.98px) { /* Small devices (landscape phones) */
+  .about-section { padding: 50px 0; }
+
+  .about-hero-enhanced-section { min-height: 60vh; padding: 60px 15px; }
+  .about-hero-enhanced-title { font-size: 2.2rem; }
+  .about-hero-enhanced-tagline { font-size: 1.3rem; }
+  .about-hero-enhanced-subtitle { font-size: 1rem; }
+  .about-hero-enhanced-cta.btn-light,
+  .about-get-involved-enhanced-button.btn-light {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .about-header-icon { font-size: 2.5rem; }
+  .about-section-title { font-size: 1.9rem; }
+  .about-section-header.text-center .about-section-title::after { width: 50px; margin-top: 10px;}
+  .about-section-description { font-size: 1rem; }
+
+  .about-icon-heading-wrapper { flex-direction: column; align-items: flex-start; text-align: left; }
+  .about-header-icon-inline { margin-bottom: 10px; margin-right: 0; }
+  .about-section-title-inline { font-size: 1.7rem; }
+
+  .about-team-card-refined { max-width: none; } /* Allow full width in column */
+  .about-team-img-wrapper { height: 250px; }
+
+  .about-stat-number { font-size: 2.2rem; }
+  .about-stat-label { font-size: 0.9rem; }
+
+  .about-timeline-item { padding-left: 60px; padding-right: 15px; }
+  .about-timeline-item-left::before, .about-timeline-item-right::before { left: 50px; }
+  .about-timeline-item-left::after, .about-timeline-item-right::after { left: 10px; width: 18px; height: 18px;}
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (portrait phones) */
+    .about-hero-enhanced-title { font-size: 1.8rem; }
+    .about-hero-enhanced-tagline { font-size: 1.1rem; }
+    .about-hero-enhanced-subtitle { font-size: 0.9rem; }
+
+    .about-section-title { font-size: 1.7rem; }
+    .about-section-title-inline { font-size: 1.5rem; }
+    .about-section-text-lead { font-size: 1.1rem; }
+    .about-section-text { font-size: 0.95rem; }
+
+    .about-timeline-content { padding: 15px; }
+    .about-timeline-title { font-size: 1.2rem; }
+    .about-timeline-description { font-size: 0.9rem; }
+}

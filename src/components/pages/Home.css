@@ -1,0 +1,1863 @@
+/* Hero Section */
+.hero-section {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #9575cd 0%, #b39ddb 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+/* Home.css */
+
+/*------------------------------------------------------------------
+[Table of Contents]
+
+1.  Global Styles & Variables
+    - Root Variables (Themes)
+    - Base Typography
+    - Body & Main Container
+2.  Theme Toggle Button
+3.  Decorative Elements
+    - Shooting Stars
+    - Particles
+4.  Hero Section
+    - New Hero Section
+    - Hero Content Styling
+5.  General Section Styling
+    - Section Titles (Ornate)
+    - Section Subtitles
+6.  Key Features Section
+    - Feature Cards
+    - Antique Card Style
+7.  Explore Section
+    - Explore Content
+    - Vellum Overlay/Card Style
+8.  How It Works Section
+    - Steps Styling
+9.  About College & Video Section
+    - College Info & Image
+    - Video Styling
+10. Screenshots/Demo Section
+    - Carousel Styling
+    - Antique Carousel
+    - Vellum Caption
+11. Testimonials Section
+    - Testimonial Cards
+12. Benefits Section
+    - Benefit Items
+13. FAQ Section
+    - Accordion Styling
+    - Antique Accordion
+14. CTA (Call to Action) Section
+    - CTA Styling
+    - Background Elements
+15. Buttons
+    - Primary Button
+    - Outline Button
+    - Antique Button
+16. Helper Classes & Animations
+    - Lines
+    - Frames
+    - AOS Overrides (if needed)
+17. Responsive Design
+-------------------------------------------------------------------*/
+
+/* 1. Global Styles & Variables
+-------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/*
+  font-family: 'Merriweather', serif; (Good for body text)
+  font-family: 'Cinzel Decorative', cursive; (Good for ornate titles)
+  font-family: 'Lora', serif; (Good for subtitles and slightly more formal text)
+*/
+
+:root {
+  /* Light Theme (Parchment) */
+  --home-font-primary: 'Lora', serif;
+  --home-font-headings: 'Cinzel Decorative', cursive;
+  --home-font-accent: 'Merriweather', serif;
+
+  --home-bg-color-light: #fdf5e6; /* Lighter Parchment */
+  --home-text-color-light: #5D4037; /* Dark Brown */
+  --home-primary-color-light: #8B4513; /* SaddleBrown */
+  --home-secondary-color-light: #A0522D; /* Sienna */
+  --home-accent-color-light: #D2B48C; /* Tan / Light Brown for borders/accents */
+  --home-card-bg-light: #FAF0E6; /* Linen / Slightly off-white for cards */
+  --home-card-border-light: #D2B48C;
+  --home-vellum-bg-light: rgba(245, 222, 179, 0.85); /* Wheat with transparency */
+  --home-hero-overlay-color-rgb-light: 93, 64, 55; /* --home-text-color-light as RGB */
+  --home-bg-color-rgb-light: 253, 245, 230; /* --home-bg-color-light as RGB */
+  --home-shadow-color-light: rgba(93, 64, 55, 0.15);
+
+  /* Dark Theme (Aged Wood / Dark Parchment) */
+  --home-bg-color-dark: #3E2723; /* Dark Wood Brown */
+  --home-text-color-dark: #E0E0E0; /* Light Gray / Off-white */
+  --home-primary-color-dark: #BCAAA4; /* Light Brown/Gray */
+  --home-secondary-color-dark: #A1887F; /* Brownish Gray */
+  --home-accent-color-dark: #6D4C41; /* Medium Dark Brown for borders */
+  --home-card-bg-dark: #4E342E; /* Darker Wood for cards */
+  --home-card-border-dark: #6D4C41;
+  --home-vellum-bg-dark: rgba(62, 39, 35, 0.85); /* Darker vellum */
+  --home-hero-overlay-color-rgb-dark: 30, 20, 18; /* Darker overlay */
+  --home-bg-color-rgb-dark: 62, 39, 35; /* --home-bg-color-dark as RGB */
+  --home-shadow-color-dark: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="light"] {
+  --home-bg-color: var(--home-bg-color-light);
+  --home-text-color: #000;
+  --home-primary-color: #9575cd;
+  --home-secondary-color: var(--home-secondary-color-light);
+  --home-accent-color: #9575cd;
+  --home-card-bg: var(--home-card-bg-light);
+  --home-card-border: var(--home-card-border-light);
+  --home-vellum-bg: #fff;
+  --home-hero-overlay-color-rgb: var(--home-hero-overlay-color-rgb-light);
+  --home-bg-color-rgb: var(--home-bg-color-rgb-light);
+  --home-shadow-color: var(--home-shadow-color-light);
+}
+
+html[data-theme="dark"] {
+  --home-bg-color: var(--home-bg-color-dark);
+  --home-text-color: var(--home-text-color-dark);
+  --home-primary-color: var(--home-primary-color-dark);
+  --home-secondary-color: var(--home-secondary-color-dark);
+  --home-accent-color: var(--home-accent-color-dark);
+  --home-card-bg: var(--home-card-bg-dark);
+  --home-card-border: var(--home-card-border-dark);
+  --home-vellum-bg: var(--home-vellum-bg-dark);
+  --home-hero-overlay-color-rgb: var(--home-hero-overlay-color-rgb-dark);
+  --home-bg-color-rgb: var(--home-bg-color-rgb-dark);
+  --home-shadow-color: var(--home-shadow-color-dark);
+}
+
+body {
+  font-family: var(--home-font-primary);
+  background-color: var(--home-bg-color);
+  color: var(--home-text-color);
+  line-height: 1.7;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.home-main-container {
+  overflow-x: hidden; /* Ensure no horizontal scroll from elements */
+  position: relative; /* For absolutely positioned decorative elements */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--home-font-headings);
+  color: var(--home-primary-color);
+  margin-bottom: 0.75em;
+  font-weight: 700;
+}
+
+p {
+  font-family: var(--home-font-accent);
+  margin-bottom: 1em;
+  font-size: 1.05rem;
+  color: var(--home-text-color);
+}
+
+a {
+  color: var(--home-secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--home-primary-color);
+  text-decoration: underline;
+}
+
+/* 2. Theme Toggle Button
+-------------------------------------------------------------------*/
+.home-theme-toggle-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050; /* Above most elements */
+  background-color: var(--home-card-bg);
+  color: var(--home-primary-color);
+  border: 1px solid var(--home-card-border);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px var(--home-shadow-color);
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.home-theme-toggle-button:hover {
+  transform: scale(1.1);
+  background-color: var(--home-primary-color);
+  color: var(--home-bg-color);
+}
+
+/* 3. Decorative Elements
+-------------------------------------------------------------------*/
+/* Shooting Stars */
+@keyframes home-shooting-star-animation {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100vw) translateY(100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.home-shooting-star {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(-45deg, var(--home-accent-color), rgba(0, 0, 0, 0));
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px var(--home-accent-color));
+  animation: home-shooting-star-animation 5s linear infinite;
+  opacity: 0;
+  z-index: 0; /* Behind content */
+}
+
+/* Particles */
+@keyframes home-particle-float {
+  0% { transform: translateY(0px) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+  100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+}
+
+.home-hero-particle-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allow clicks through */
+  overflow: hidden;
+}
+
+.home-particle {
+  position: absolute;
+  background-color: rgba(255, 223, 186, 0.4); /* Light gold/parchment dust color */
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: home-particle-float 6s infinite ease-in-out;
+}
+
+.home-particle:nth-child(1) { width: 5px; height: 5px; top: 10%; left: 10%; animation-delay: 0s; }
+.home-particle:nth-child(2) { width: 3px; height: 3px; top: 20%; left: 80%; animation-delay: -1s; }
+.home-particle:nth-child(3) { width: 6px; height: 6px; top: 50%; left: 50%; animation-delay: -2s; }
+.home-particle:nth-child(4) { width: 4px; height: 4px; top: 70%; left: 20%; animation-delay: -0.5s; }
+.home-particle:nth-child(5) { width: 5px; height: 5px; top: 90%; left: 90%; animation-delay: -1.5s; }
+.home-particle:nth-child(6) { width: 3px; height: 3px; top: 30%; left: 30%; animation-delay: -2.5s; }
+.home-particle:nth-child(7) { width: 6px; height: 6px; top: 60%; left: 70%; animation-delay: -3s; }
+/* Add more if needed */
+html[data-theme="dark"] .home-particle {
+  background-color: rgba(200, 180, 150, 0.3); /* Muted for dark theme */
+}
+
+
+/* 4. Hero Section
+-------------------------------------------------------------------*/
+.home-new-hero-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 100px 20px;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* Parallax effect */
+  color: #fff; /* Default text color for hero, can be overridden by theme */
+}
+
+html[data-theme="light"] .home-new-hero-section {
+  color: var(--home-text-color-light); /* Ensuring text is readable on light overlay */
+}
+html[data-theme="dark"] .home-new-hero-section {
+  color: var(--home-text-color-dark); /* Ensuring text is readable on dark overlay */
+}
+
+
+.home-new-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  background: rgba(var(--home-bg-color-rgb), 0.6); /* Subtle vellum/aged paper background */
+  backdrop-filter: blur(3px);
+  padding: 40px;
+  border-radius: 10px;
+  border: 2px solid var(--home-accent-color);
+  box-shadow: 0 10px 30px rgba(var(--home-hero-overlay-color-rgb), 0.3);
+}
+
+#home-new-hero-quote {
+  font-family: var(--home-font-accent);
+  font-style: italic;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--home-primary-color);
+  font-weight: 400;
+}
+
+.home-new-hero-line {
+  width: 100px;
+  height: 3px;
+  background-color: var(--home-primary-color);
+  margin: 0 auto 25px auto;
+  border-radius: 2px;
+}
+
+.home-new-hero-content h1 {
+  font-size: 3rem;
+  font-family: var(--home-font-headings);
+  font-weight: 700;
+  margin-bottom: 0;
+  color: var(--home-primary-color); /* Primary color for heading on hero */
+  line-height: 1.3;
+}
+
+@keyframes home-hero-title-word-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.home-hero-title-word {
+  display: inline-block;
+  opacity: 0;
+  animation: home-hero-title-word-fade-in 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 5. General Section Styling
+-------------------------------------------------------------------*/
+.home-section {
+  padding: 80px 0;
+  position: relative;
+}
+
+.home-section:nth-of-type(even) {
+  background-color: rgba(var(--home-accent-color-rgb, var(--home-accent-color-rgb-light)), 0.05); /* Very subtle alternating bg */
+}
+html[data-theme="light"] {
+  --home-accent-color-rgb-light: 210, 180, 140; /* Tan as RGB */
+}
+html[data-theme="dark"] {
+  --home-accent-color-rgb-dark: 109, 76, 65; /* Medium Dark Brown as RGB */
+  .home-section:nth-of-type(even) {
+    background-color: rgba(var(--home-accent-color-rgb, var(--home-accent-color-rgb-dark)), 0.1);
+  }
+}
+
+
+.home-section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  position: relative;
+  font-weight: 700;
+  padding-bottom: 15px;
+  color: var(--home-primary-color);
+}
+
+.home-ornate-title span {
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.home-ornate-title span::before,
+.home-ornate-title span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 50px; /* Adjust as needed */
+  height: 2px;
+  background-color: var(--home-accent-color);
+  transform: translateY(-50%);
+}
+
+.home-ornate-title span::before {
+  left: -60px; /* Adjust to clear text */
+}
+
+.home-ornate-title span::after {
+  right: -60px; /* Adjust to clear text */
+}
+
+/* Alternative ornate title with flourishes (requires pseudo elements or SVG) */
+.home-ornate-title.flourish span::before {
+    content: "❦"; /* Example flourish character */
+    left: -30px;
+    font-size: 1.5em;
+    background-color: transparent;
+    color: var(--home-accent-color);
+}
+.home-ornate-title.flourish span::after {
+    content: "❦";
+    right: -30px;
+    font-size: 1.5em;
+    background-color: transparent;
+    color: var(--home-accent-color);
+    transform: translateY(-50%) scaleX(-1); /* Mirror flourish */
+}
+
+
+.home-section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: var(--home-font-accent);
+  color: var(--home-text-color);
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
+}
+
+/* 6. Key Features Section
+-------------------------------------------------------------------*/
+.home-features-section {
+  /* Specific styles if any */
+}
+
+.home-feature-col {
+  display: flex;
+}
+
+.home-antique-card {
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px var(--home-shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Ensure card takes full column width if flexed */
+  display: flex;
+  flex-direction: column;
+}
+
+.home-antique-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px var(--home-shadow-color);
+}
+
+.home-feature-card .home-feature-img-frame {
+  padding: 15px;
+  background-color: rgba(var(--home-accent-color-rgb, var(--home-accent-color-rgb-light)), 0.1);
+  border-bottom: 1px solid var(--home-card-border);
+  overflow: hidden; /* For rounded corners on image */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+html[data-theme="dark"] .home-feature-card .home-feature-img-frame {
+    background-color: rgba(var(--home-accent-color-rgb, var(--home-accent-color-rgb-dark)), 0.2);
+}
+
+.home-feature-card-img {
+  width: 100%;
+  height: 200px; /* Adjust as needed */
+  object-fit: cover;
+  border-radius: 4px;
+  filter: sepia(0.2) contrast(0.9) brightness(1.05); /* Subtle antique filter */
+}
+
+.home-feature-card .card-body {
+  padding: 25px;
+  flex-grow: 1; /* Allow body to take remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home-feature-title {
+  font-size: 1.6rem;
+  color: var(--home-primary-color);
+  margin-bottom: 15px;
+}
+
+.home-feature-text {
+  font-size: 1rem;
+  font-family: var(--home-font-accent);
+  color: var(--home-text-color);
+  opacity: 0.9;
+  flex-grow: 1;
+}
+
+/* 7. Explore Section
+-------------------------------------------------------------------*/
+.home-explore-section {
+  padding: 100px 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+  position: relative;
+}
+
+.home-explore-content-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 50px 30px;
+  position: relative;
+  z-index: 1;
+  color: var(--home-text-color); /* Default, adjust if bg makes it unreadable */
+}
+html[data-theme="light"] .home-explore-content-wrapper {
+  color: var(--home-text-color-light); /* Ensure readability on light overlay */
+}
+html[data-theme="dark"] .home-explore-content-wrapper {
+  color: var(--home-text-color-dark); /* Ensure readability on dark overlay */
+}
+
+
+.home-vellum-overlay {
+  background-color: var(--home-vellum-bg);
+  border: 2px solid var(--home-accent-color);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.home-explore-title {
+  font-size: 3rem;
+  color: var(--home-primary-color);
+}
+
+.home-explore-line {
+  width: 80px;
+  height: 3px;
+  background-color: var(--home-primary-color);
+  margin: 20px auto 30px auto;
+  border-radius: 2px;
+}
+
+.home-explore-text {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  font-family: var(--home-font-accent);
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+/* 8. How It Works Section
+-------------------------------------------------------------------*/
+.home-how-it-works-section {
+  /* Specific styles if any */
+}
+
+.home-steps-container {
+  position: relative;
+  padding-left: 50px; /* Space for the timeline bar */
+}
+
+.home-steps-container::before { /* Timeline bar */
+  content: '';
+  position: absolute;
+  left: 20px; /* Aligns with center of number */
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--home-accent-color);
+  border-radius: 2px;
+}
+
+.home-step {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.home-step:last-child {
+  margin-bottom: 0;
+}
+
+.home-step-number-wrapper {
+  flex-shrink: 0;
+  margin-right: 30px; /* Pushes content to the right */
+  position: relative;
+  z-index: 1;
+  margin-left: -38px; /* Pull to center on timeline */
+}
+
+.home-step-number {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--home-primary-color);
+  color: var(--home-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--home-font-headings);
+  font-size: 1.8rem;
+  font-weight: 700;
+  border: 4px solid var(--home-bg-color); /* Creates a ring effect */
+  box-shadow: 0 0 0 3px var(--home-primary-color); /* Outer ring */
+}
+
+.home-step-content {
+  flex-grow: 1;
+}
+
+.home-vellum-card {
+  background-color: var(--home-vellum-bg);
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid var(--home-accent-color);
+  box-shadow: 0 4px 10px var(--home-shadow-color);
+}
+
+.home-step-title {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  color: var(--home-primary-color);
+}
+
+.home-step-text {
+  font-size: 1rem;
+  font-family: var(--home-font-accent);
+  color: var(--home-text-color);
+  opacity: 0.9;
+}
+
+/* 9. About College & Video Section
+-------------------------------------------------------------------*/
+.home-about-college-video-section {
+  /* Specific styles if any */
+}
+
+.home-image-frame {
+  padding: 10px;
+  background-color: var(--home-card-bg);
+  border: 2px solid var(--home-accent-color);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px var(--home-shadow-color);
+  display: inline-block; /* To wrap around image */
+}
+
+.home-about-college-img {
+  border-radius: 4px;
+  filter: sepia(0.15) contrast(0.95);
+}
+
+.home-vellum-box {
+  background-color: var(--home-vellum-bg);
+  padding: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--home-accent-color);
+  box-shadow: 0 5px 15px var(--home-shadow-color);
+}
+
+.home-about-college-text {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  font-family: var(--home-font-accent);
+}
+
+#home-jiet-video-wrapper {
+  margin-top: 40px;
+  text-align: center; /* Center the video frame */
+}
+
+.home-video-frame {
+  position: relative;
+  max-width: 800px; /* Control video size */
+  margin: 0 auto;
+  padding: 10px;
+  background-color: var(--home-card-bg);
+  border: 3px solid var(--home-accent-color);
+  border-radius: 10px;
+  box-shadow: 0 8px 25px var(--home-shadow-color);
+  overflow: hidden; /* Ensures overlay grain is contained */
+}
+
+.home-jiet-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px; /* Inner radius */
+  filter: sepia(0.2) contrast(0.9);
+}
+
+.home-video-overlay-grain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYqBgYOLi4uAgIBWVlZgYGCqqqqUlJRecXCEAAAAJklEQVR42mNgAFAKBggCFgQkAAAAHgAACAEAArMCC0AAAAASUVORK5CYII='); /* Subtle grain texture */
+  opacity: 0.08;
+  pointer-events: none;
+  border-radius: 5px; /* Match video radius */
+}
+
+/* 10. Screenshots/Demo Section
+-------------------------------------------------------------------*/
+.home-screenshots-section {
+  /* Specific styles if any */
+}
+
+.home-antique-carousel .carousel-indicators [data-bs-target] {
+  background-color: var(--home-accent-color);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--home-primary-color);
+  opacity: 0.7;
+  margin: 0 5px;
+}
+
+.home-antique-carousel .carousel-indicators .active {
+  background-color: var(--home-primary-color);
+  opacity: 1;
+}
+
+.home-antique-carousel .carousel-control-prev-icon,
+.home-antique-carousel .carousel-control-next-icon {
+  background-color: var(--home-primary-color); /* Make controls more visible */
+  border-radius: 50%;
+  padding: 15px;
+  background-size: 50% 50%;
+  opacity: 0.8;
+}
+.home-antique-carousel .carousel-control-prev-icon:hover,
+.home-antique-carousel .carousel-control-next-icon:hover {
+  opacity: 1;
+}
+html[data-theme="dark"] .home-antique-carousel .carousel-control-prev-icon,
+html[data-theme="dark"] .home-antique-carousel .carousel-control-next-icon {
+  filter: invert(1) sepia(0.5);
+}
+
+
+.home-carousel-image-container {
+  max-height: 550px; /* Control image height */
+  overflow: hidden;
+  border-radius: 8px;
+  border: 2px solid var(--home-accent-color);
+  background-color: var(--home-card-bg); /* Background for placeholder */
+}
+
+.home-carousel-image {
+  object-fit: contain; /* Show whole image, might need cover if images are consistent */
+  width: 100%;
+  height: 100%; /* Fill container */
+  max-height: 530px; /* Inner image height */
+  filter: sepia(0.1) brightness(1.05);
+}
+
+.home-carousel-caption {
+  position: static; /* Bootstrap default is absolute, change for vellum style */
+  padding: 25px;
+  text-align: center;
+  color: var(--home-text-color);
+}
+
+.home-vellum-caption {
+  background-color: var(--home-vellum-bg);
+  border-top: 1px solid var(--home-accent-color);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-top: -5px; /* Overlap slightly with image container border */
+}
+
+.home-carousel-caption h3 {
+  font-size: 1.8rem;
+  color: var(--home-primary-color);
+  font-family: var(--home-font-headings);
+}
+
+.home-carousel-caption p {
+  font-size: 1rem;
+  font-family: var(--home-font-accent);
+  margin-bottom: 0;
+}
+
+/* 11. Testimonials Section
+-------------------------------------------------------------------*/
+.home-testimonials-section {
+  /* background-color: rgba(var(--home-accent-color-rgb), 0.08); */
+}
+
+.home-testimonial-col {
+  display: flex;
+}
+
+.home-testimonial-card {
+  /* Uses .home-antique-card */
+  text-align: center;
+}
+
+.home-testimonial-card .card-body {
+  padding: 30px;
+}
+
+.home-testimonial-quote-icon {
+  font-size: 2.5rem;
+  color: var(--home-accent-color);
+  margin-bottom: 15px;
+  opacity: 0.7;
+}
+
+.home-testimonial-quote {
+  font-family: var(--home-font-accent);
+  font-style: italic;
+  font-size: 1.15rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: var(--home-text-color);
+}
+
+.home-testimonial-quote::before {
+  content: none; /* Removing default blockquote styling if any */
+}
+.home-testimonial-quote::after {
+  content: none;
+}
+
+.home-testimonial-author {
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--home-primary-color);
+  margin-top: 10px;
+}
+
+
+/* 12. Benefits Section
+-------------------------------------------------------------------*/
+.home-benefits-section {
+  /* Specific styles if any */
+}
+.home-benefit-col {
+  display: flex;
+}
+.home-benefit-item {
+  /* uses .home-vellum-card */
+  text-align: center;
+  padding: 30px 20px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.home-benefit-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--home-shadow-color);
+}
+
+.home-benefit-icon-wrapper {
+  margin-bottom: 20px;
+}
+
+.home-benefit-icon {
+  font-size: 3rem;
+  color: var(--home-primary-color);
+  background-color: rgba(var(--home-primary-color-rgb, var(--home-primary-color-rgb-light)), 0.1);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--home-primary-color);
+}
+html[data-theme="light"] {
+  --home-primary-color-rgb-light: 139, 69, 19; /* SaddleBrown */
+}
+html[data-theme="dark"] {
+  --home-primary-color-rgb-dark: 188, 170, 164; /* Light Brown/Gray */
+  .home-benefit-icon {
+    background-color: rgba(var(--home-primary-color-rgb, var(--home-primary-color-rgb-dark)), 0.15);
+  }
+}
+
+
+.home-benefit-title {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: var(--home-primary-color);
+}
+
+.home-benefit-text {
+  font-size: 1rem;
+  font-family: var(--home-font-accent);
+  opacity: 0.9;
+}
+
+/* 13. FAQ Section
+-------------------------------------------------------------------*/
+.home-faq-section {
+  /* background-color: rgba(var(--home-accent-color-rgb), 0.05); */
+}
+
+.home-antique-accordion .home-accordion-item {
+  background-color: var(--home-card-bg);
+  border: 1px solid var(--home-card-border);
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden; /* For rounded corners on header/body */
+  box-shadow: 0 3px 8px var(--home-shadow-color);
+}
+
+.home-antique-accordion .home-accordion-item:last-of-type {
+  margin-bottom: 0;
+}
+
+.home-antique-accordion .home-accordion-header button {
+  background-color: transparent; /* Override bootstrap default */
+  color: var(--home-primary-color);
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 20px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  box-shadow: none !important; /* Override bootstrap focus shadow */
+}
+
+.home-antique-accordion .home-accordion-header button::after { /* Arrow */
+  background-image: none; /* Remove default Bootstrap arrow */
+  content: "▼"; /* Custom arrow */
+  font-size: 0.8em;
+  color: var(--home-primary-color);
+  transform: translateY(-2px) rotate(0deg);
+  transition: transform 0.3s ease;
+  margin-left: auto; /* Pushes arrow to the right */
+}
+
+.home-antique-accordion .home-accordion-header button:not(.collapsed)::after {
+  transform: translateY(-2px) rotate(-180deg);
+}
+
+
+.home-antique-accordion .home-accordion-body {
+  padding: 0 20px 20px 20px;
+  font-family: var(--home-font-accent);
+  font-size: 1rem;
+  color: var(--home-text-color);
+  line-height: 1.8;
+  background-color: rgba(var(--home-bg-color-rgb), 0.5); /* Slightly different bg for body */
+}
+
+
+/* 14. CTA (Call to Action) Section
+-------------------------------------------------------------------*/
+.home-cta-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--home-secondary-color), var(--home-primary-color));
+  color: var(--home-bg-color); /* Text should be light on dark bg */
+  position: relative;
+  overflow: hidden;
+}
+
+.home-cta-grain-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYqBgYOLi4uAgIBWVlZgYGCqqqqUlJRecXCEAAAAJklEQVR42mNgAFAKBggCFgQkAAAAHgAACAEAArMCC0AAAAASUVORK5CYII=');
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.home-cta-content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.home-cta-icon {
+  font-size: 4rem;
+  margin-bottom: 25px;
+  display: block; /* To center with margin auto */
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.8;
+  color: var(--home-bg-color); /* Ensure icon is visible */
+}
+
+.home-cta-title {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: var(--home-bg-color); /* Ensure title is visible */
+}
+
+.home-cta-text {
+  font-size: 1.2rem;
+  font-family: var(--home-font-accent);
+  max-width: 650px;
+  margin: 0 auto 35px auto;
+  opacity: 0.9;
+  color: var(--home-bg-color); /* Ensure text is visible */
+}
+
+/* CTA Background elements */
+@keyframes home-cta-bg-el-float {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+  50% { transform: translateY(-25px) rotate(15deg); opacity: 0.4; }
+  100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+}
+
+.home-cta-bg-el {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1); /* Faint white circles */
+  animation: home-cta-bg-el-float 10s infinite ease-in-out;
+  z-index: 0;
+}
+.home-cta-el1 { width: 150px; height: 150px; top: 10%; left: 5%; animation-duration: 12s; }
+.home-cta-el2 { width: 200px; height: 200px; top: 60%; left: 80%; animation-duration: 15s; animation-delay: -3s; }
+.home-cta-el3 { width: 100px; height: 100px; top: 30%; left: 30%; animation-duration: 10s; animation-delay: -1s;}
+.home-cta-el4 { width: 250px; height: 250px; bottom: -50px; left: 40%; animation-duration: 18s; animation-delay: -5s; }
+.home-cta-el5 { width: 80px; height: 80px; top: 70%; left: 15%; animation-duration: 9s; }
+
+
+/* 15. Buttons
+-------------------------------------------------------------------*/
+.home-button-icon {
+  vertical-align: -0.125em; /* Align icons better with text */
+}
+
+.home-antique-button {
+  font-family: var(--home-font-primary);
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border-width: 2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.home-primary-button,
+.home-cta-button.btn-light /* For CTA button */ {
+  background-color: var(--home-primary-color);
+  border-color: var(--home-primary-color);
+  color: var(--home-bg-color); /* Text color for solid primary button */
+}
+.home-primary-button:hover,
+.home-cta-button.btn-light:hover {
+  background-color: var(--home-secondary-color);
+  border-color: var(--home-secondary-color);
+  color: var(--home-bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Specific for CTA button that is btn-light based on JSX */
+html[data-theme="light"] .home-cta-button.home-antique-button {
+  background-color: var(--home-bg-color-light); /* White/Parchment */
+  border-color: var(--home-accent-color-light);
+  color: var(--home-primary-color-light); /* Brown text */
+}
+html[data-theme="light"] .home-cta-button.home-antique-button:hover {
+  background-color: var(--home-accent-color-light);
+  border-color: var(--home-primary-color-light);
+  color: var(--home-bg-color-light);
+}
+
+html[data-theme="dark"] .home-cta-button.home-antique-button {
+  background-color: var(--home-bg-color-dark); /* Dark Wood */
+  border-color: var(--home-accent-color-dark);
+  color: var(--home-primary-color-dark); /* Light Brown text */
+}
+html[data-theme="dark"] .home-cta-button.home-antique-button:hover {
+  background-color: var(--home-accent-color-dark);
+  border-color: var(--home-primary-color-dark);
+  color: var(--home-bg-color-dark);
+}
+
+
+.home-outline-button.home-antique-button {
+  background-color: transparent;
+  border-color: var(--home-primary-color);
+  color: var(--home-primary-color);
+}
+.home-outline-button.home-antique-button:hover {
+  background-color: var(--home-primary-color);
+  border-color: var(--home-primary-color);
+  color: var(--home-bg-color); /* Text color on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--home-shadow-color);
+}
+
+
+/* 16. Helper Classes & Animations
+-------------------------------------------------------------------*/
+/* Lines and Frames are mostly handled inline or within specific component styles */
+
+/* AOS Overrides (if needed) - usually AOS works well out of the box */
+[data-aos] {
+  /* Example: Make transitions slightly slower for antique feel */
+  /* transition-duration: 1s !important; */
+}
+
+
+/* 17. Responsive Design
+-------------------------------------------------------------------*/
+@media (max-width: 991.98px) { /* Medium devices (tablets, less than 992px) */
+  .home-section-title,
+  .home-explore-title,
+  .home-cta-title,
+  .home-new-hero-content h1 {
+    font-size: 2.2rem;
+  }
+  #home-new-hero-quote { font-size: 1.5rem; }
+
+  .home-ornate-title span::before,
+  .home-ornate-title span::after {
+    width: 30px;
+  }
+  .home-ornate-title span::before { left: -40px; }
+  .home-ornate-title span::after { right: -40px; }
+
+  .home-steps-container { padding-left: 20px; }
+  .home-step-number-wrapper { margin-left: -23px; /* Adjust for smaller number */ }
+  .home-step-number { width: 50px; height: 50px; font-size: 1.3rem; }
+
+  .home-about-college-img-col,
+  .home-about-college-paragraph-col {
+    text-align: center; /* Center content in columns */
+    margin-bottom: 30px;
+  }
+  #home-about-college-img-col { margin-bottom: 30px; }
+  #home-about-college-paragraph-col { margin-bottom: 0; }
+}
+
+@media (max-width: 767.98px) { /* Small devices (landscape phones, less than 768px) */
+  .home-section { padding: 60px 0; }
+  .home-section-title,
+  .home-explore-title,
+  .home-cta-title,
+  .home-new-hero-content h1 {
+    font-size: 1.8rem;
+  }
+  #home-new-hero-quote { font-size: 1.3rem; }
+  .home-section-subtitle, .home-explore-text, .home-cta-text { font-size: 1rem; }
+
+  .home-new-hero-content { padding: 30px 20px; }
+
+  .home-steps-container::before { left: 10px; } /* Adjust timeline bar */
+  .home-step-number-wrapper { margin-right: 15px; margin-left: -20px; }
+  .home-step-number { width: 45px; height: 45px; font-size: 1.1rem; border-width: 3px; }
+  .home-step-content { padding: 15px; }
+  .home-step-title { font-size: 1.3rem; }
+
+  .home-antique-button { padding: 10px 20px; font-size: 0.9rem; }
+
+  .home-theme-toggle-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    top: 15px;
+    right: 15px;
+  }
+
+  .home-ornate-title span { padding: 0 10px; }
+  .home-ornate-title span::before,
+  .home-ornate-title span::after {
+    display: none; /* Hide side lines on small screens for simplicity */
+  }
+
+  .home-shooting-star { display: none; } /* Optional: hide on small screens for performance/clutter */
+}
+
+@media (max-width: 575.98px) { /* Extra small devices (portrait phones, less than 576px) */
+  .home-new-hero-content h1 {
+    font-size: 1.6rem; /* Further reduce for very small screens */
+    line-height: 1.4;
+  }
+  #home-new-hero-quote { font-size: 1.1rem; }
+  .home-explore-title, .home-cta-title { font-size: 1.6rem; }
+
+  .home-feature-card .card-body,
+  .home-vellum-card,
+  .home-testimonial-card .card-body,
+  .home-benefit-item,
+  .home-antique-accordion .home-accordion-header button,
+  .home-antique-accordion .home-accordion-body {
+    padding: 15px;
+  }
+
+  .home-benefit-icon { font-size: 2rem; width: 60px; height: 60px; }
+  .home-benefit-title { font-size: 1.3rem; }
+
+  .home-cta-bg-el { display: none; } /* Hide floating elements on very small screens */
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(100px, -150px);
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-100px, 100px);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 35px;
+  opacity: 0.95;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-button {
+  padding: 14px 34px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 1s ease;
+}
+
+.hero-image img {
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.03);
+}
+
+/* Features Section */
+.features-section {
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.features-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: rgba(149, 117, 205, 0.05);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.feature-card {
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: white;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #9575cd, #b39ddb);
+  z-index: 2;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+.feature-title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover .feature-title {
+  color: var(--primary-color);
+}
+
+/* How It Works Section */
+.how-it-works-section {
+  background-color: rgba(149, 117, 205, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-it-works-section::before {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(149, 117, 205, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.steps-container {
+  position: relative;
+  padding: 40px 0;
+  z-index: 1;
+}
+
+.steps-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 24px;
+  width: 3px;
+  background: linear-gradient(to bottom, #9575cd, #b39ddb);
+  border-radius: 3px;
+}
+
+.step {
+  display: flex;
+  margin-bottom: 50px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateX(10px);
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9575cd, #b39ddb);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-right: 25px;
+  z-index: 1;
+  box-shadow: 0 5px 15px rgba(149, 117, 205, 0.3);
+  transition: all 0.3s ease;
+}
+
+.step:hover .step-number {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(149, 117, 205, 0.4);
+}
+
+.step-content {
+  flex: 1;
+  background-color: white;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.step:hover .step-content {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.step-content h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.step-content p {
+  color: #333;
+}
+
+/* Dark mode fixes for How It Works section */
+.dark-theme .step-content {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .step:hover .step-content {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .step-content h4 {
+  color: var(--primary-dark);
+}
+
+.dark-theme .step-content p {
+  color: var(--text-dark) !important;
+}
+
+/* College Section */
+.college-section {
+  background-color: white;
+  position: relative;
+}
+
+.college-section::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom, transparent, rgba(149, 117, 205, 0.05));
+  z-index: 0;
+}
+
+.college-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.college-content:hover {
+  transform: translateY(-5px);
+}
+
+.college-content h3 {
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #333;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.college-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #9575cd, #b39ddb);
+  border-radius: 3px;
+}
+
+.college-content p {
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.college-section img {
+  transition: all 0.5s ease;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.college-section img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Screenshots Section */
+.screenshots-section {
+  background-color: white;
+}
+
+.screenshots-carousel {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  padding: 15px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background-color: rgba(149, 117, 205, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(149, 117, 205, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.testimonial-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: all 0.4s ease;
+  background: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #9575cd, #b39ddb);
+  z-index: 1;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-quote {
+  font-size: 1.15rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  position: relative;
+  padding: 0 25px;
+  line-height: 1.7;
+}
+
+.testimonial-quote::before,
+.testimonial-quote::after {
+  content: '"';
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #9575cd, #b39ddb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+}
+
+.testimonial-quote::before {
+  left: 0;
+  top: -15px;
+}
+
+.testimonial-quote::after {
+  right: 0;
+  bottom: -30px;
+}
+
+.testimonial-author {
+  font-weight: 700;
+  color: #333;
+  text-align: right;
+  position: relative;
+  padding-right: 15px;
+}
+
+.testimonial-author::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+/* Benefits Section */
+.benefits-section {
+  background-color: white;
+  position: relative;
+}
+
+.benefits-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(149, 117, 205, 0.05), transparent);
+  z-index: 0;
+}
+
+.benefit-item {
+  text-align: center;
+  padding: 40px 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  transition: all 0.4s ease;
+  background: white;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.benefit-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #9575cd, #b39ddb);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.benefit-item:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item:hover::before {
+  transform: scaleX(1);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+  transform: scale(1.1);
+}
+
+.benefit-item h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.benefit-item:hover h4 {
+  color: var(--primary-color);
+}
+
+/* Dark mode fixes for Benefits section */
+.dark-theme .benefit-icon {
+  color: var(--primary-color);
+}
+
+.dark-theme .benefit-item {
+  background-color: #1e1e1e;
+}
+
+.dark-theme .benefit-item h4 {
+  color: var(--text-dark);
+}
+
+.dark-theme .benefit-item:hover h4 {
+  color: var(--primary-dark);
+}
+
+.dark-theme .benefit-item p {
+  color: var(--text-dark) !important;
+}
+
+/* FAQ Section */
+.faq-section {
+  background-color: rgba(149, 117, 205, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 250px;
+  height: 250px;
+  background: rgba(149, 117, 205, 0.08);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(149, 117, 205, 0.25);
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #9575cd 0%, #b39ddb 100%);
+  color: white;
+  padding: 80px 0;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+}
+
+.cta-button:hover {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #9575cd !important;
+  border-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.section-title {
+  animation: fadeInUp 0.8s ease;
+}
+
+.section-subtitle {
+  animation: fadeInUp 1s ease;
+}
+
+.feature-card, .step, .benefit-item, .testimonial-card {
+  animation: fadeIn 1.2s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 80px 0;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-image {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    padding: 60px 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .steps-container::before {
+    left: 25px;
+  }
+}

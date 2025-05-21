@@ -1,0 +1,66 @@
+.admin-maintenance .search-input {
+  position: relative;
+}
+
+.admin-maintenance .search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.admin-maintenance .search-input input {
+  padding-left: 35px;
+}
+
+.admin-maintenance .maintenance-details h6 {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #495057;
+}
+
+.admin-maintenance .maintenance-details p {
+  margin-bottom: 0;
+}
+
+.admin-maintenance .maintenance-notes {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 3px solid #9370DB;
+}
+
+/* Status colors */
+.admin-maintenance .status-scheduled {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.admin-maintenance .status-in-progress {
+  background-color: #fff8e1;
+  color: #ff8f00;
+}
+
+.admin-maintenance .status-completed {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.admin-maintenance .status-cancelled {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+  .admin-maintenance .action-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-maintenance .action-buttons .btn {
+    margin-bottom: 5px;
+    margin-right: 0 !important;
+  }
+}

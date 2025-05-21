@@ -1,0 +1,79 @@
+.admin-analytics .stat-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-analytics .stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-analytics .stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.admin-analytics .stat-icon.passengers {
+  background-color: #9370DB;
+}
+
+.admin-analytics .stat-icon.average {
+  background-color: #3498db;
+}
+
+.admin-analytics .stat-icon.peak {
+  background-color: #f39c12;
+}
+
+.admin-analytics .stat-icon.popular {
+  background-color: #2ecc71;
+}
+
+.admin-analytics .stat-details {
+  flex: 1;
+}
+
+.admin-analytics .stat-details h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.admin-analytics .stat-details p {
+  margin: 0;
+  color: #6c757d;
+}
+
+.admin-analytics .chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+.admin-analytics .card-header h5 {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+/* Responsive styles */
+@media (max-width: 991px) {
+  .admin-analytics .chart-container {
+    height: 250px;
+  }
+}
+
+@media (max-width: 767px) {
+  .admin-analytics .chart-container {
+    height: 200px;
+  }
+  
+  .admin-analytics .stat-card {
+    margin-bottom: 15px;
+  }
+}
