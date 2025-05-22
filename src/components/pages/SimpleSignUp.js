@@ -52,7 +52,7 @@ const SimpleSignUp = () => {
         role: formData.role
       };
 
-      const response = await axiosInstance.post('/ekmate/api/v1/auth/sign-up', minimalData);
+      const response = await axiosInstance.post('/auth/sign-up', minimalData);
 
       if (response.data.success) {
         const successMsg = 'Registration successful! Please check your email for verification instructions.';
@@ -91,9 +91,9 @@ const SimpleSignUp = () => {
             <Card className="auth-card">
               <Card.Body>
                 <div className="text-center mb-4">
-                  <h2 className="auth-title">Simple Sign Up</h2>
+                  <h2 className="auth-title">Sign Up</h2>
                   <p className="auth-subtitle">
-                    Create your account with minimal information
+                    Create your account
                   </p>
                 </div>
 
