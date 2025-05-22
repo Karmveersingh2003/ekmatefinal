@@ -80,11 +80,11 @@ const AppRoutes = () => {
           (currentUser?.role === 'admin' ? <Navigate to="/admin" replace /> : <Navigate to="/dashboard" replace />) :
           <><Navbar /><SignUp /><Footer /></>
         } />
-        <Route path="/simple-signup" element={
+        {/* <Route path="/simple-signup" element={
           isAuthenticated() ?
           (currentUser?.role === 'admin' ? <Navigate to="/admin" replace /> : <Navigate to="/dashboard" replace />) :
           <><Navbar /><SimpleSignUp /><Footer /></>
-        } />
+        } /> */}
         <Route path="/signin" element={
           isAuthenticated() ?
           (currentUser?.role === 'admin' ? <Navigate to="/admin" replace /> : <Navigate to="/dashboard" replace />) :
