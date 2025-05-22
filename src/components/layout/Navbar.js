@@ -37,7 +37,7 @@ const NavbarComponent = () => {
             </Button>
             <Button
               variant="primary"
-              onClick={() => navigate('/simple-signup')}
+              onClick={() => navigate('/signup')}
               className="me-2 custom-btn"
               style={{ backgroundColor: '#9575cd', borderColor: '#9575cd' }}
             >
